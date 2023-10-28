@@ -1,0 +1,32 @@
+<header>
+    <h1>Pokeboosters</h1>
+</header>
+<div>
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                <h2>Menu</h2>
+            </mat-panel-title>
+            <mat-panel-description>
+
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div class="formulaire">
+            <mat-form-field appearance="outline" style="width: 100%;"  [attr.disabled]="true">
+                <mat-label>Choix serie</mat-label>
+                 <mat-select formControlName="type" > 
+                    <mat-option>
+                        a
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </mat-expansion-panel>
+    
+    <button mat-button (click)="onClick()">Basic</button>
+    
+</div>
+
+<div class="face-snap-card">
+    {{ListBoosters$.data }}
+</div>
