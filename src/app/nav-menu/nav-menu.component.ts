@@ -1,8 +1,9 @@
 import { Component,OnInit } from '@angular/core';
 import { BoostersService } from '../services/boosters.service';
-import { BoosterList } from '../models/boosterList.model';
 import { Booster } from '../models/Booster.model';
 import { Observable } from 'rxjs/internal/Observable';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { card } from '../models/cards.model';
 
 
 @Component({
@@ -13,17 +14,30 @@ import { Observable } from 'rxjs/internal/Observable';
 })
 
 export class NavMenuComponent implements OnInit{
-  ListBoosters$!:Observable<BoosterList[]>;
-  //Boosters$!:Observable<Booster>;
-  constructor(private BoosterService: BoostersService){}
+
+
+  Boosters$!:Observable<Booster[]>;
+  simulatorForm:FormGroup | any;
+  cards$!: Observable<card[]>
+
+
+  constructor(private formBuilder: FormBuilder,private BoosterService: BoostersService){
+    this.simulatorForm=this.formBuilder.group({
+      boosterset: ['omnihexa', Validators.required],})
+
+
+  }
 
   ngOnInit(): void {
-    this.ListBoosters$=this.BoosterService.getAllBoosters()
+    this.Boosters$=this.BoosterService.getAllBoosters()
     
   }
   onClick():void{
-    this.ListBoosters$=this.BoosterService.getAllBoosters()
-    console.log(this.ListBoosters$)
+    this.BoosterService.getAllBoosters().subscribe(val => console.log(val))
+  }
+
+  getCardsBySet(id:string):void{
+    this.cards$=this.BoosterService.getCardsBySetid(id)
   }
 
 

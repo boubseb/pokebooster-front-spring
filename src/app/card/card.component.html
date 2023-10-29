@@ -1,0 +1,5 @@
+<div *ngIf="cards$"></div>
+<div *ngFor="let card of cards$| async" >
+    {{card.name}}
+    <img [src]="card.images.small"/>
+</div>
