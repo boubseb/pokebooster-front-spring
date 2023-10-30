@@ -1,4 +1,4 @@
-import { Booster } from "./Booster.model"
+import { Set } from "./set.model"
 
 export class card {
     id!: string
@@ -13,7 +13,7 @@ export class card {
     weaknesses?: Weakness[]
     retreatCost?: string[]
     convertedRetreatCost?: number
-    set!: Booster
+    set!: Set
     number!: string
     artist?: string
     rarity!: string
@@ -42,18 +42,6 @@ export class card {
     value!: string
   }
   
-  export class Set {
-    id!: string
-    name!: string
-    series!: string
-    printedTotal!: number
-    total!: number
-    legalities!: Legalities
-    ptcgoCode!: string
-    releaseDate!: string
-    updatedAt!: string
-    images!: Images
-  }
   
   export class Legalities {
     unlimited!: string

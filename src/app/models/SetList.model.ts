@@ -1,7 +1,7 @@
-import { Booster } from "./Booster.model"
+import { Set } from "./set.model"
 
-export class BoosterList {
-    data!: Booster[]
+export class SetList {
+    data!: Set[]
     page!: number
     pageSize!: number
     count!: number

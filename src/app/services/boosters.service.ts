@@ -1,25 +1,42 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { map, reduce, groupBy } from 'rxjs/operators';
 import { Observable } from 'rxjs';
-import { BoosterList } from '../models/boosterList.model';
-import { Booster } from '../models/Booster.model';
+import { SetList } from '../models/SetList.model';
+import { Set } from '../models/set.model';
 import { cardList } from '../models/cardList.model';
 import { card } from '../models/cards.model';
+import { ObserversModule } from '@angular/cdk/observers';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BoostersService {
-  constructor(private http: HttpClient) {}
 
-    getAllBoosters(): Observable<Booster[]>{
-            return this.http.get<BoosterList>('https://api.pokemontcg.io/v2/sets').pipe(map(e => e.data))         
+  headers!:HttpHeaders;
+
+  constructor(private http: HttpClient) {
+    const headers = new HttpHeaders({"X-Api-Key":"6ef86c9f-633b-4411-a6cd-1d8b01533a46"})
+  }
+
+    getAllBoosters(): Observable<Set[]>{
+            return this.http.get<SetList>('https://api.pokemontcg.io/v2/sets',{headers:this.headers}).pipe(map(e => e.data))         
     }
 
-    getCardsBySetid(id :string): Observable<card[]>{
-        return this.http.get<cardList>('https://api.pokemontcg.io/v2/cards?q=set.id:'+id).pipe(map(e => e.data))
+    getCardsBySetid(id :string): Observable<any[]>{
+        let allcard:any;
+      
+        allcard=this.http.get<SetList>('https://api.pokemontcg.io/v2/cards?q=set.id:'+id,{headers:this.headers}).pipe(map(e => e.data.reduce(
+          (res:any, card:any)=>{
+            if(!res[card.rarity]){
+              res[card.rarity]=[]}
+            res[card.rarity].push(card);
+            return res;},{}
+        )))
+
+        return allcard
     }
+   
 
 
 

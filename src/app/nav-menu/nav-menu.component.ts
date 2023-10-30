@@ -1,6 +1,6 @@
 import { Component,OnInit } from '@angular/core';
 import { BoostersService } from '../services/boosters.service';
-import { Booster } from '../models/Booster.model';
+import { Set } from '../models/set.model';
 import { Observable } from 'rxjs/internal/Observable';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { card } from '../models/cards.model';
@@ -16,30 +16,45 @@ import { card } from '../models/cards.model';
 export class NavMenuComponent implements OnInit{
 
 
-  Boosters$!:Observable<Booster[]>;
+  Sets$!:Observable<Set[]>;
   simulatorForm:FormGroup | any;
-  cards$!: Observable<card[]>
-
+  cards$!: Observable<card[]>;
+  cards!:any;
+  cardsListForDislay!:any;
+  display!:card[][];
 
   constructor(private formBuilder: FormBuilder,private BoosterService: BoostersService){
+
     this.simulatorForm=this.formBuilder.group({
-      boosterset: ['omnihexa', Validators.required],})
+      setid: ['sv3pt5', Validators.required],})
 
 
   }
 
   ngOnInit(): void {
-    this.Boosters$=this.BoosterService.getAllBoosters()
+    this.Sets$=this.BoosterService.getAllBoosters()
+    for(let booster in this.Sets$){
+      
+    }
     
   }
   onClick():void{
-    this.BoosterService.getAllBoosters().subscribe(val => console.log(val))
-  }
-
-  getCardsBySet(id:string):void{
-    this.cards$=this.BoosterService.getCardsBySetid(id)
-  }
-
+    let rarity;
+    
+    this.cards$=this.BoosterService.getCardsBySetid(this.simulatorForm.value.setid) ;
+    this.cards$.subscribe(x=>{this.cards=x})
+    console.log(this.cards['Common'])
+    this.cardsListForDislay=this.cards
+    console.log(this.cardsListForDislay)
+    //rarity=this.cards$.subscribe(x=>{x.map(y=>{y.rarity;console.log(y.rarity)})});
+    // this.cards$.subscribe((x:card[])=>{     
+    //    console.log(x)
+    //    }
+    //   )
+      
+    };
+    
+  
 
 
 }

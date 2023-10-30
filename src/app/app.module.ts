@@ -20,17 +20,19 @@ import {MatSelectModule } from '@angular/material/select';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatFormFieldModule} from '@angular/material/form-field';
-
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CardComponent } from './card/card.component';
+import { CardListComponent } from './card-list/card-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainPageComponent,
     NavMenuComponent,
-    CardComponent
+    CardComponent,
+    CardListComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +48,8 @@ import { CardComponent } from './card/card.component';
     MatFormFieldModule,
     FormsModule,
     ReactiveFormsModule,
-    
+    MatToolbarModule,
+
 
 
   ],

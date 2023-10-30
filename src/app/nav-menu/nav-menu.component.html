@@ -1,37 +1,32 @@
 <header>
     <h1>Pokeboosters</h1>
 </header>
-<div class="formulaire" >
+<div class="formulaire" [formGroup]="simulatorForm">
 
-    <mat-expansion-panel [expanded]="true">
-        <mat-expansion-panel-header>
-            <mat-panel-title>
-                <h2>Menu</h2>
-            </mat-panel-title>
-            <mat-panel-description>
 
-            </mat-panel-description>
-        </mat-expansion-panel-header>
-        <div class="formulaire">
-            <mat-form-field appearance="outline" style="width: 100%;" formControlName="boosterset">
-                <mat-label>Choix serie</mat-label>
-                    <mat-select>
-                        <mat-option (click)="getCardsBySet(booster.id)" *ngFor='let booster of Boosters$ | async' value=booster.name>{{booster.name}}</mat-option>
-                    </mat-select>
-            </mat-form-field>
-        </div>
-    </mat-expansion-panel>
-    
+    <mat-toolbar color="primary">
+        <mat-toolbar-row>
+          <span><h2>Menu</h2></span>
+        </mat-toolbar-row>
+      
+        <mat-toolbar-row>
+            <div class="formulaire">
+                <mat-form-field appearance="outline" style="width: 100%;" >
+                    <mat-label>Choix serie</mat-label>
+                        <mat-select formControlName="setid">
+                            <mat-option *ngFor='let booster of Sets$ | async' [value]=booster.id>{{booster.name}}</mat-option>
+                        </mat-select>
+                </mat-form-field>
+                </div>
+        </mat-toolbar-row>
+      
+        <mat-toolbar-row>
+            <button appearance="outline" mat-button (click)="onClick()">OPEN cards</button>
+        </mat-toolbar-row>
+      </mat-toolbar>
 
-    
-    <button mat-button (click)="onClick()">Basic</button>
-    <div class="card" >
-        
-        <div *ngFor="let card of cards$| async" >
-            {{card.name}}
-            <img [src]="card.images.small"/>
-        </div>
-    </div>
+
+      <app-card-list [cards$]="cards$"></app-card-list>
     
 
 
