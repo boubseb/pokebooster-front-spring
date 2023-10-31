@@ -21,10 +21,13 @@
         </mat-toolbar-row>
       
         <mat-toolbar-row>
-                <mat-slide-toggle formControlName="fastOpening" color="primary">fastOpeningg</mat-slide-toggle>
-            <button appearance="outline" mat-button (click)="onClick()">OPEN cards</button>
+            <mat-slide-toggle formControlName="fastOpening" color="primary">fastOpeningg</mat-slide-toggle>
         </mat-toolbar-row>
+    <mat-toolbar-row>
+        <button appearance="outline" mat-button (click)="onClick()">OPEN cards</button>
+    </mat-toolbar-row>
       </mat-toolbar>
+
     
 
       <app-card-list [cards$]="cards$" [boosters$]="boosters$" [fastOpening]="simulatorForm.value.fastOpening"></app-card-list>
