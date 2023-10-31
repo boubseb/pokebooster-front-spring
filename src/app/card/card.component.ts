@@ -9,14 +9,29 @@ import { BoostersService } from '../services/boosters.service';
   styleUrls: ['./card.component.scss']
 })
 export class CardComponent {
-  @Input() Card!: card;
+  @Input() card!: card;
+  reveal:Boolean=false;
+  cardPath:string="/assets/pokemon_recto.jpg";
 
-  cards$!: Observable<card[]>
+  cards$!: Observable<card[][]>
   constructor(private BoosterService: BoostersService){
+  
   }
-  getCardsBySet(id:string):void{
-    this.cards$=this.BoosterService.getCardsBySetid(id)
+  
+  onClick():void{
+      console.log("click")
+      if(this.reveal==false){
+        this.reveal=true;
+        this.cardPath=this.card.images.small
+      }
+      else{
+        this.reveal=false;
+        this.cardPath='/assets/pokemon_recto.jpg'
+      }
+
+
   }
+  
   
 
 }

@@ -4,6 +4,7 @@ import { Set } from '../models/set.model';
 import { Observable } from 'rxjs/internal/Observable';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { card } from '../models/cards.model';
+import { forkJoin, of } from 'rxjs';
 
 
 @Component({
@@ -19,6 +20,7 @@ export class NavMenuComponent implements OnInit{
   Sets$!:Observable<Set[]>;
   simulatorForm:FormGroup | any;
   cards$!: Observable<card[]>;
+  boosters$!:Observable<card[][]>;
   cards!:any;
   cardsListForDislay!:any;
   display!:card[][];
@@ -41,11 +43,19 @@ export class NavMenuComponent implements OnInit{
   onClick():void{
     let rarity;
     
-    this.cards$=this.BoosterService.getCardsBySetid(this.simulatorForm.value.setid) ;
-    this.cards$.subscribe(x=>{this.cards=x})
-    console.log(this.cards['Common'])
-    this.cardsListForDislay=this.cards
-    console.log(this.cardsListForDislay)
+  this.BoosterService.getCardsBySetid(this.simulatorForm.value.setid).subscribe(x=>{
+      console.log(x)
+      let common=[];
+      let uc=[];
+      for(let i=0;i<80;i++){
+        common.push(x.Common[Math.floor(Math.random()*x.Common.length)]);
+        if(i<60){
+          uc.push(x.Uncommon[Math.floor(Math.random()*x.Uncommon.length)])
+        }
+      };
+      this.cards$=of(common)
+      this.boosters$=of([common,uc])
+    }) ;
     //rarity=this.cards$.subscribe(x=>{x.map(y=>{y.rarity;console.log(y.rarity)})});
     // this.cards$.subscribe((x:card[])=>{     
     //    console.log(x)

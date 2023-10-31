@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 
@@ -21,10 +21,15 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatGridListModule} from '@angular/material/grid-list';
+
+
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CardComponent } from './card/card.component';
 import { CardListComponent } from './card-list/card-list.component';
+
+
 
 @NgModule({
   declarations: [
@@ -49,11 +54,11 @@ import { CardListComponent } from './card-list/card-list.component';
     FormsModule,
     ReactiveFormsModule,
     MatToolbarModule,
-
-
-
+    MatGridListModule
+    
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+
 })
 export class AppModule { }

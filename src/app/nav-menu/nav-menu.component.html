@@ -4,7 +4,7 @@
 <div class="formulaire" [formGroup]="simulatorForm">
 
 
-    <mat-toolbar color="primary">
+    <mat-toolbar>
         <mat-toolbar-row>
           <span><h2>Menu</h2></span>
         </mat-toolbar-row>
@@ -26,7 +26,7 @@
       </mat-toolbar>
 
 
-      <app-card-list [cards$]="cards$"></app-card-list>
+      <app-card-list [cards$]="cards$" [boosters$]="boosters$"></app-card-list>
     
 
 

@@ -13,6 +13,7 @@ export class CardListComponent {
 
 
   @Input() cards$!: Observable<card[]>;
+  @Input() boosters$!:Observable<card[][]>;
 
   constructor(private BoosterService: BoostersService){
   }

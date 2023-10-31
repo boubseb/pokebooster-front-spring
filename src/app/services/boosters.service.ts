@@ -23,18 +23,15 @@ export class BoostersService {
             return this.http.get<SetList>('https://api.pokemontcg.io/v2/sets',{headers:this.headers}).pipe(map(e => e.data))         
     }
 
-    getCardsBySetid(id :string): Observable<any[]>{
-        let allcard:any;
-      
-        allcard=this.http.get<SetList>('https://api.pokemontcg.io/v2/cards?q=set.id:'+id,{headers:this.headers}).pipe(map(e => e.data.reduce(
+    getCardsBySetid(id :string): Observable<any>{
+        
+        return this.http.get<SetList>('https://api.pokemontcg.io/v2/cards?q=set.id:'+id,{headers:this.headers}).pipe(map(e => e.data.reduce(
           (res:any, card:any)=>{
             if(!res[card.rarity]){
               res[card.rarity]=[]}
             res[card.rarity].push(card);
             return res;},{}
         )))
-
-        return allcard
     }
    
 
