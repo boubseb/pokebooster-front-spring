@@ -47,14 +47,20 @@ export class NavMenuComponent implements OnInit{
       console.log(x)
       let common=[];
       let uc=[];
-      for(let i=0;i<80;i++){
-        common.push(x.Common[Math.floor(Math.random()*x.Common.length)]);
-        if(i<60){
-          uc.push(x.Uncommon[Math.floor(Math.random()*x.Uncommon.length)])
+      let boosters:card[][]=[]
+
+      for(let i=0;i<20;i++){
+        boosters.push([])
+        for(let j=0;j<10;j++){
+          boosters[i].push(x.Common[Math.floor(Math.random()*x.Common.length)])
         }
+        // common.push(x.Common[Math.floor(Math.random()*x.Common.length)]);
+        // if(i<60){
+        //   uc.push(x.Uncommon[Math.floor(Math.random()*x.Uncommon.length)])
+        // }
       };
-      this.cards$=of(common)
-      this.boosters$=of([common,uc])
+      //this.cards$=of(common)
+      this.boosters$=of(boosters)
     }) ;
     //rarity=this.cards$.subscribe(x=>{x.map(y=>{y.rarity;console.log(y.rarity)})});
     // this.cards$.subscribe((x:card[])=>{     
