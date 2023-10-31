@@ -10,14 +10,26 @@ import { BoostersService } from '../services/boosters.service';
 })
 export class CardComponent {
   @Input() card!: card;
-  reveal:Boolean=false;
-  cardPath:string="/assets/pokemon_recto.jpg";
+  @Input() fastopening!:Boolean;
+
+  reveal!:Boolean;
+  cardPath!:string;
 
   cards$!: Observable<card[][]>
   constructor(private BoosterService: BoostersService){
   
   }
   
+  ngOnInit(): void {
+    if(this.fastopening){
+      this.reveal=true;
+      this.cardPath=this.card.images.small
+    }
+    else{
+      this.reveal=false;
+      this.cardPath="/assets/pokemon_recto.jpg";
+    }
+  }
   onClick():void{
       console.log("click")
       if(this.reveal==false){

@@ -22,7 +22,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatGridListModule} from '@angular/material/grid-list';
-
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -54,7 +54,8 @@ import { CardListComponent } from './card-list/card-list.component';
     FormsModule,
     ReactiveFormsModule,
     MatToolbarModule,
-    MatGridListModule
+    MatGridListModule,
+    MatSlideToggleModule
     
   ],
   providers: [],

@@ -28,7 +28,8 @@ export class NavMenuComponent implements OnInit{
   constructor(private formBuilder: FormBuilder,private BoosterService: BoostersService){
 
     this.simulatorForm=this.formBuilder.group({
-      setid: ['sv3pt5', Validators.required],})
+      setid: ['sv3pt5', Validators.required],
+      fastOpening:[true,Validators.required]})
 
 
   }
@@ -40,9 +41,8 @@ export class NavMenuComponent implements OnInit{
     }
     
   }
-  onClick():void{
-    let rarity;
-    
+  onClick():void{    
+    console.log(this.simulatorForm.value.fastOpening)
   this.BoosterService.getCardsBySetid(this.simulatorForm.value.setid).subscribe(x=>{
       console.log(x)
       let common=[];

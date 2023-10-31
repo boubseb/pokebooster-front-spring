@@ -14,6 +14,7 @@ export class CardListComponent {
 
   @Input() cards$!: Observable<card[]>;
   @Input() boosters$!:Observable<card[][]>;
+  @Input() fastOpening!:Boolean;
 
   constructor(private BoosterService: BoostersService){
   }
