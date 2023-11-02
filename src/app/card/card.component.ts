@@ -27,7 +27,7 @@ export class CardComponent {
     }
     else{
       this.reveal=false;
-      this.cardPath="/assets/pokemon_recto.jpg";
+      this.cardPath="/assets/pokemon_recto.png";
     }
   }
   onClick():void{
@@ -38,7 +38,7 @@ export class CardComponent {
       }
       else{
         this.reveal=false;
-        this.cardPath='/assets/pokemon_recto.jpg'
+        this.cardPath='/assets/pokemon_recto.png'
       }
 
 

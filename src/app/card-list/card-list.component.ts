@@ -15,12 +15,18 @@ export class CardListComponent {
   @Input() cards$!: Observable<card[]>;
   @Input() boosters$!:Observable<card[][]>;
   @Input() fastOpening!:Boolean;
+  @Input() DisplayMode!:Boolean;
+  mobile!:Boolean;
 
   constructor(private BoosterService: BoostersService){
   }
 
 
   ngOnInit(): void {
+
+    if (window.screen.width <= 1000) { // 768px portrait
+      this.mobile = true;
+    }
     
   }
  

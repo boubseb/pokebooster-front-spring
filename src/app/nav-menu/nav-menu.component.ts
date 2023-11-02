@@ -4,8 +4,8 @@ import { Set } from '../models/set.model';
 import { Observable } from 'rxjs/internal/Observable';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { card } from '../models/cards.model';
-import { forkJoin, of } from 'rxjs';
-
+import {  of } from 'rxjs';
+import * as ParamSetData from 'src/assets/param.json';
 
 @Component({
   selector: 'app-nav-menu',
@@ -24,21 +24,35 @@ export class NavMenuComponent implements OnInit{
   cards!:any;
   cardsListForDislay!:any;
   display!:card[][];
+  ParamSetData!:any;
+
 
   constructor(private formBuilder: FormBuilder,private BoosterService: BoostersService){
 
     this.simulatorForm=this.formBuilder.group({
       setid: ['sv3pt5', Validators.required],
-      fastOpening:[true,Validators.required]})
+      fastOpening:[false,Validators.required],
+      openingChoice:['booster',Validators.required],
+      nb_boosters:['1',Validators.required],
+      DisplayMode:[false,Validators.required]})
 
 
   }
+  sets=[
+     "xy9",]
 
   ngOnInit(): void {
+
+ 
+
+    this.ParamSetData=ParamSetData
     this.Sets$=this.BoosterService.getAllBoosters()
-    for(let booster in this.Sets$){
-      
-    }
+    // for(let setid of this.sets){
+    //   this.BoosterService.getCardsBySetid(setid).subscribe(x=>{
+    //     console.log(setid)
+    //     console.log(Object.keys(x))})
+    // }
+  
     
   }
   onClick():void{    
@@ -47,14 +61,43 @@ export class NavMenuComponent implements OnInit{
       console.log(x)
       let common=[];
       let uc=[];
-      for(let i=0;i<80;i++){
-        common.push(x.Common[Math.floor(Math.random()*x.Common.length)]);
-        if(i<60){
-          uc.push(x.Uncommon[Math.floor(Math.random()*x.Uncommon.length)])
+      let boosters:card[][]=[]
+      let nb_booster:number=0;
+   
+      switch(this.simulatorForm.value.openingChoice) { 
+        case "booster": { 
+          nb_booster=1;
+          break; 
+        } 
+        case "Display": { 
+           nb_booster=20;
+           break; 
+        } 
+        case "few_boosters": { 
+           nb_booster=this.simulatorForm.value.nb_boosters
+           break; 
+        } 
+     } 
+      let random=0;
+      for(let i=0;i<nb_booster;i++){
+        boosters.push([])
+        for(let j=0;j<this.ParamSetData[this.simulatorForm.value.setid].length;j++){
+          random=Math.random()*100
+          for(let k=0;k<this.ParamSetData[this.simulatorForm.value.setid][j].length;k++){    
+              let pourcentage=this.ParamSetData[this.simulatorForm.value.setid][j][k].pourcentage
+              console.log(random,pourcentage[0],pourcentage[1])
+              if(pourcentage[0]<random && random<pourcentage[1]){
+                let Rarity=this.ParamSetData[this.simulatorForm.value.setid][j][k]['Rarity']
+                let card = x[Rarity][Math.floor(Math.random()*x[Rarity].length)]
+                boosters[i].push(card)
+                console.log(card)
+              }
+          }
+          
         }
       };
-      this.cards$=of(common)
-      this.boosters$=of([common,uc])
+      //this.cards$=of(common)
+      this.boosters$=of(boosters)
     }) ;
     //rarity=this.cards$.subscribe(x=>{x.map(y=>{y.rarity;console.log(y.rarity)})});
     // this.cards$.subscribe((x:card[])=>{     

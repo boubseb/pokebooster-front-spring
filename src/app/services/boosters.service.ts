@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { map, reduce, groupBy } from 'rxjs/operators';
+import { map, reduce, groupBy, filter } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { SetList } from '../models/SetList.model';
 import { Set } from '../models/set.model';
