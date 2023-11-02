@@ -15,7 +15,6 @@ export class CardComponent {
   reveal!:Boolean;
   cardPath!:string;
 
-  cards$!: Observable<card[][]>
   constructor(private BoosterService: BoostersService){
   
   }
