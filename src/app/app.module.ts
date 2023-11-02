@@ -23,7 +23,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
-
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CardComponent } from './card/card.component';
@@ -55,7 +55,9 @@ import { CardListComponent } from './card-list/card-list.component';
     ReactiveFormsModule,
     MatToolbarModule,
     MatGridListModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatButtonToggleModule
+    
     
   ],
   providers: [],
