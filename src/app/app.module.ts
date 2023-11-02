@@ -29,7 +29,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CardComponent } from './card/card.component';
 import { CardListComponent } from './card-list/card-list.component';
 
-
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 
 @NgModule({
   declarations: [
@@ -56,7 +56,8 @@ import { CardListComponent } from './card-list/card-list.component';
     MatToolbarModule,
     MatGridListModule,
     MatSlideToggleModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    CarouselModule.forRoot(),
     
     
   ],

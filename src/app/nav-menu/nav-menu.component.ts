@@ -26,23 +26,33 @@ export class NavMenuComponent implements OnInit{
   display!:card[][];
   ParamSetData!:any;
 
+
   constructor(private formBuilder: FormBuilder,private BoosterService: BoostersService){
 
     this.simulatorForm=this.formBuilder.group({
       setid: ['sv3pt5', Validators.required],
-      fastOpening:[true,Validators.required],
+      fastOpening:[false,Validators.required],
       openingChoice:['booster',Validators.required],
-      nb_boosters:['1',Validators.required]})
+      nb_boosters:['1',Validators.required],
+      DisplayMode:[false,Validators.required]})
 
 
   }
+  sets=[
+     "xy9",]
 
   ngOnInit(): void {
+
+ 
+
     this.ParamSetData=ParamSetData
     this.Sets$=this.BoosterService.getAllBoosters()
-    for(let booster in this.Sets$){
-      
-    }
+    // for(let setid of this.sets){
+    //   this.BoosterService.getCardsBySetid(setid).subscribe(x=>{
+    //     console.log(setid)
+    //     console.log(Object.keys(x))})
+    // }
+  
     
   }
   onClick():void{    
