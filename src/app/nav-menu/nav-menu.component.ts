@@ -56,9 +56,14 @@ export class NavMenuComponent implements OnInit{
     
   }
   onClick():void{    
-    console.log(this.simulatorForm.value.fastOpening)
-  this.BoosterService.getCardsBySetid(this.simulatorForm.value.setid).subscribe(x=>{
+    this.BoosterService.getBoosterPrice(this.simulatorForm.value.setid).subscribe(x=>{
       console.log(x)
+      
+    })
+    
+  this.BoosterService.getCardsBySetid(this.simulatorForm.value.setid).subscribe(x=>{
+      //console.log(x)
+      this.boosters$=of([])
       let common=[];
       let uc=[];
       let boosters:card[][]=[]
@@ -85,12 +90,10 @@ export class NavMenuComponent implements OnInit{
           random=Math.random()*100
           for(let k=0;k<this.ParamSetData[this.simulatorForm.value.setid][j].length;k++){    
               let pourcentage=this.ParamSetData[this.simulatorForm.value.setid][j][k].pourcentage
-              console.log(random,pourcentage[0],pourcentage[1])
               if(pourcentage[0]<random && random<pourcentage[1]){
                 let Rarity=this.ParamSetData[this.simulatorForm.value.setid][j][k]['Rarity']
                 let card = x[Rarity][Math.floor(Math.random()*x[Rarity].length)]
                 boosters[i].push(card)
-                console.log(card)
               }
           }
           

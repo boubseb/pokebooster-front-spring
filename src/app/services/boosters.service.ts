@@ -23,6 +23,10 @@ export class BoostersService {
             return this.http.get<SetList>('https://api.pokemontcg.io/v2/sets',{headers:this.headers}).pipe(map(e => e.data))         
     }
 
+    getBoosterPrice(id:string):Observable<any>{
+      return this.http.get<SetList>('https://api.pokemontcg.io/v2/cards?q=set.id:'+id,{headers:this.headers}).pipe(map((e:any) => {return e.data.map((card:any)=>{return card.cardmarket.prices.lowPrice}).reduce((acc:any, amount:any) => acc + amount)/e.count}))
+    }
+
     getCardsBySetid(id :string): Observable<any>{
         
         return this.http.get<SetList>('https://api.pokemontcg.io/v2/cards?q=set.id:'+id,{headers:this.headers}).pipe(map(e => e.data.reduce(
