@@ -64,8 +64,6 @@ export class NavMenuComponent implements OnInit{
   this.BoosterService.getCardsBySetid(this.simulatorForm.value.setid).subscribe(x=>{
       //console.log(x)
       this.boosters$=of([])
-      let common=[];
-      let uc=[];
       let boosters:card[][]=[]
       let nb_booster:number=0;
    

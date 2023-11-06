@@ -1,4 +1,4 @@
-<div>
+<div class="form-card">
     <h2>User Registration</h2>
     <form [formGroup]="registrationForm">
       <div class="form-group">
@@ -14,5 +14,7 @@
         <input type="password" id="password" formControlName="password" class="form-control" placeholder="Enter your password" required>
       </div>
       <button (click)="registerUser()" class="btn btn-primary">Register</button>
+      <a routerLink="/auth/login">Back to Login</a>
     </form>
+
   </div>

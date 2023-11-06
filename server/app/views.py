@@ -23,7 +23,7 @@ db_config = {
     'host': '192.168.1.91',
     'database': 'pokeboosters',
     'user': 'seb',
-    'password': 'Boubouseb.2',
+    'password': 'test',
 }
 
 jwt = JWTManager(app)
@@ -32,13 +32,9 @@ mail = Mail(app)
 def connect_to_db():
     conn = psycopg2.connect(**db_config)
     return conn
+
 # configuration
-
-
-
-
 DEBUG = True
-
 CORS(app, resources={r"/*": {"origins": "*"}})
 
 
@@ -49,14 +45,10 @@ def register():
     username = data['username']
     email = data['email']
     password = data['password']
-
     conn = connect_to_db()
     cur = conn.cursor()
-
     cur.execute("select * from users where pseudo='"+username+"'")
-
-     # Fetch the first result
-    user = cur.fetchone()
+    user = cur.fetchone()      # Fetch the first result
 
     if user:
         return jsonify({'message': 'Username or email already in use'}), 400
@@ -75,35 +67,31 @@ def register():
           cur.close()
           conn.close()
       
-      
-        
-
-
-   
-
-    # Customize this SQL query based on your table structure
-    
-
 
 @app.route('/login', methods=['POST'])
 def login():
     data = request.json
     username = data['username']
     password = data['password']
+    conn = connect_to_db()
+    cur = conn.cursor()
 
-    # user = User.query.filter_by(username=username).first()
-    # if user and check_password_hash(user.password, password):
-    #     access_token = create_access_token(identity=username)
-    #     return jsonify({'access_token': access_token}), 200
-    # else:
-    #     return jsonify({'message': 'Invalid credentials'}), 401
+    cur.execute("select * from users where pseudo='"+username+"'")
+
+     # Fetch the first result
+    user = cur.fetchone()   
+    if user and check_password_hash(user[3], password):
+        access_token = create_access_token(identity=username)
+        return jsonify({'access_token': access_token}), 200
+    else:
+        return jsonify({'message': 'Invalid credentials'}), 401
     
 
-@app.route('/logout', methods=['POST'])
-@jwt_required
-def logout():
-    # The user is authenticated if this route is reached
-    return jsonify({'message': 'Logged out successfully'}), 200
+# @app.route('/logout', methods=['POST'])
+# @jwt_required
+# def logout():
+#     # The user is authenticated if this route is reached
+#     return jsonify({'message': 'Logged out successfully'}), 200
 
 
 

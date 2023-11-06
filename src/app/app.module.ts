@@ -11,7 +11,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { CoreModule } from './core/core.module';
 import { AuthModule } from './auth/auth.module';
 import { httpInterceptorProviders } from './core/interceptors';
-import { RegisterComponent } from './auth/components/register/register.component';
 
 @NgModule({
   declarations: [

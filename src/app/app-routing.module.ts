@@ -4,8 +4,9 @@ import { LoginComponent } from './auth/components/login/login.component';
 import { RegisterComponent } from './auth/components/register/register.component';
 
 const routes: Routes = [
-  { path: '', component: RegisterComponent },
-  {path:'register',component: RegisterComponent},
+  { path: '', redirectTo: 'auth/login', pathMatch: 'full' }, // Redirect to login
+  { path: 'auth/login', component: LoginComponent },
+  { path: 'auth/register', component: RegisterComponent },
   { path: 'open-boosters',  loadChildren: () => import('./open-boosters/open-boosters.module').then(m => m.OpenBoostersModule) },
 
 ];
