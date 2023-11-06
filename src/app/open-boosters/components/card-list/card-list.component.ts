@@ -1,8 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Set } from '../models/set.model';
-import { card } from '../models/cards.model';
-import { BoostersService } from '../services/boosters.service';
+import { Set } from '../../../core/models/set.model';
+import { card } from '../../../core/models/cards.model';
+import { BoostersService } from '../../../core/services/boosters.service';
 
 @Component({
   selector: 'app-card-list',

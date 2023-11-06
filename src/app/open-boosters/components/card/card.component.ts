@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { card } from '../models/cards.model';
+import { card } from '../../../core/models/cards.model';
 import { Observable } from 'rxjs';
-import { BoostersService } from '../services/boosters.service';
+import { BoostersService } from '../../../core/services/boosters.service';
 
 @Component({
   selector: 'app-card',

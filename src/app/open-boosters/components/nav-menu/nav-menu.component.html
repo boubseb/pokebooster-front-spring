@@ -1,14 +1,7 @@
-<header>
-    <h1>Pokeboosters</h1>
-</header>
+
 <div class="formulaire" [formGroup]="simulatorForm">
-
-
     <mat-toolbar>
-        <mat-toolbar-row>
-          <span><h2>Menu</h2></span>
-        </mat-toolbar-row>
-      
+        <mat-toolbar-row></mat-toolbar-row>     
         <mat-toolbar-row>
             <div class="formulaire">
                 <mat-form-field appearance="outline" style="width: 100%;" >
@@ -36,11 +29,10 @@
     <mat-toolbar-row>
         <button appearance="outline" mat-button (click)="onClick()">OPEN cards</button>
     </mat-toolbar-row>
-      </mat-toolbar>
+    </mat-toolbar>
 
-    
 
-      <app-card-list [cards$]="cards$" [boosters$]="boosters$" [fastOpening]="simulatorForm.value.fastOpening" [DisplayMode]="simulatorForm.value.DisplayMode"></app-card-list>
+    <app-card-list [cards$]="cards$" [boosters$]="boosters$" [fastOpening]="simulatorForm.value.fastOpening" [DisplayMode]="simulatorForm.value.DisplayMode"></app-card-list>
     
 
 

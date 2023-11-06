@@ -1,9 +1,9 @@
 import { Component,OnInit } from '@angular/core';
-import { BoostersService } from '../services/boosters.service';
-import { Set } from '../models/set.model';
+import { BoostersService } from '../../../core/services/boosters.service';
+import { Set } from '../../../core/models/set.model';
 import { Observable } from 'rxjs/internal/Observable';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { card } from '../models/cards.model';
+import { card } from '../../../core/models/cards.model';
 import {  of } from 'rxjs';
 import * as ParamSetData from 'src/assets/param.json';
 
@@ -86,6 +86,7 @@ export class NavMenuComponent implements OnInit{
       let random=0;
       for(let i=0;i<nb_booster;i++){
         boosters.push([])
+        this.boosters$=of(boosters)
         for(let j=0;j<this.ParamSetData[this.simulatorForm.value.setid].length;j++){
           random=Math.random()*100
           for(let k=0;k<this.ParamSetData[this.simulatorForm.value.setid][j].length;k++){    

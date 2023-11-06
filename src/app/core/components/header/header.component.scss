@@ -1,0 +1,27 @@
+header {
+    text-align: center;
+    background-color: #f5f5f5;
+    padding: 10px;
+  }
+.menu{
+    display: center;
+    a {
+        margin: 0 10px;
+        display: inline-block;
+        width: 100%;
+        color: #333;
+        text-decoration: none;
+        &:hover {
+          text-decoration: underline;
+        }
+        .active {
+            color: #666;
+            text-decoration: underline;
+          }
+    }
+
+}
+ 
+
+  
+  
