@@ -1,27 +1,36 @@
 header {
-    text-align: center;
-    background-color: #f5f5f5;
-    padding: 10px;
-  }
-.menu{
-    display: center;
-    a {
-        margin: 0 10px;
-        display: inline-block;
-        width: 100%;
-        color: #333;
-        text-decoration: none;
-        &:hover {
-          text-decoration: underline;
-        }
-        .active {
-            color: #666;
-            text-decoration: underline;
-          }
-    }
-
+  text-align: center;
+  background-color: #f5f5f5;
+  padding: 10px;
+  border-bottom: 1px solid #ddd; /* Add a subtle border at the bottom */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Add a shadow for depth */
 }
- 
 
+.menu {
+  text-align: center;
+  background-color: #f5f5f5;
+  color: #111111;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #111111;
+  margin: 1.5625% 1.5625% 1.5625% 0;
+  box-sizing: border-box;
+  padding: 2px 5px; /* Slightly larger padding for better clickability */
+  display: inline-block;
+  border: 1px solid transparent;
+  transition: background-color 0.2s;
+}
+
+.menu a:hover {
+  background-color: #f5f5f5; /* Change background color on hover */
+}
+
+
+
+ 
+  
+  
   
   

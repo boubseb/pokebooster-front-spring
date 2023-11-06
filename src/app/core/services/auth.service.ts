@@ -9,12 +9,12 @@ import { Observable } from 'rxjs';
 export class AuthService{
     constructor(private http: HttpClient) {}
     private token!: string;
-
+    url="127.0.0.1"
 
 
     login(username: string, password: string): Observable<any> {
         const body = { username, password };
-        return this.http.post('http:///127.0.0.1:5000/login', body);
+        return this.http.post('http://'+this.url+':5000/login', body);
       }
 
     setToken(token: string): void {
@@ -28,10 +28,18 @@ export class AuthService{
 
     registerUser(user: any): Observable<any> {
         console.log(user)    
-        const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-        return this.http.post('http:///127.0.0.1:5000/register', user,{headers}).pipe(map((information)=>{
+        return this.http.post('http://'+this.url+':5000/register', user).pipe(map((information)=>{
             return information;
           }));
       }
+
+    getDataofuser() :Observable<any> {
+      const headers = new HttpHeaders({
+        'Authorization': `Bearer ${this.token}` // Send the token using the "Bearer" scheme
+      });
+      return this.http.post('http://'+this.url+':5000/test',{headers}).pipe(map((information)=>{
+          return information;
+        }));
+    }
 }
 

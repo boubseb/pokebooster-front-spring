@@ -40,5 +40,9 @@ export class LoginComponent implements OnInit {
     );
   }
 
+  onTest():void{
+    this.AuthService.getDataofuser().subscribe()
+  }
+
 
 }

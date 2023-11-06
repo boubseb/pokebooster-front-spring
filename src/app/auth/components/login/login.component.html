@@ -10,6 +10,7 @@
         <input type="password" id="password" formControlName="password" class="form-control" placeholder="Enter your password" required>
       </div>
       <button (click)="onLogin(LoginForm.value.username,LoginForm.value.password)" class="btn btn-primary">Login</button>
+      <button (click)="onTest()" class="btn btn-primary">Test</button>
     </form>
     <a routerLink="/auth/register">register</a>
   </div>

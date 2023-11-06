@@ -26,3 +26,14 @@
     display: block;
     margin: 20px auto;
   }
+
+  @media (max-width: 768px) {
+    .form-card {
+      width: 90%; /* Full width on mobile screens */
+      margin: 10px auto; /* Center-align the links on mobile */
+    }
+    input, textarea {
+      width: 80%;
+    }
+    
+  }
