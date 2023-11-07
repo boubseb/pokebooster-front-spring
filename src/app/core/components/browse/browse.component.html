@@ -1,0 +1,25 @@
+<div class="formulaire" [formGroup]="BrowseForm">
+    <mat-toolbar>   
+        <mat-toolbar-row>
+            <div class="formulaire">
+                <mat-form-field appearance="outline" style="width: 100%;" >
+                    <mat-label>Choix serie</mat-label>
+                        <mat-select formControlName="setid">
+                            <mat-option *ngFor='let booster of Sets$ | async' [value]=booster.id>{{booster.name}}</mat-option>
+                        </mat-select>
+                </mat-form-field>
+                </div>
+        </mat-toolbar-row>
+        <mat-toolbar-row>
+            <mat-slide-toggle formControlName="DisplayMode" color="primary">DisplayMode</mat-slide-toggle>
+        </mat-toolbar-row>
+        <mat-toolbar-row>
+            <button appearance="outline" mat-button (click)="onDisplaySet()">View</button>
+        </mat-toolbar-row>
+    </mat-toolbar>
+</div>
+
+<app-card-list [boosters$]="boosters$" [DisplayMode]="BrowseForm.value.DisplayMode" [fastOpening]="fastopening" ></app-card-list>
+    
+
+

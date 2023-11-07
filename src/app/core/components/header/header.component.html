@@ -1,14 +1,19 @@
 <header>
+    <div class="header-links">
+        <a routerLink="auth/login" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true}">Login</a>
+        <a routerLink="auth/register" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true}">Register</a>
+        <a (click)="onLogout()">Logout</a>
+    </div>
     <h1>Pokeboosters</h1>
 </header>
 
+
 <div class="menu">
-    <a routerLink="auth/login" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true}">Home/Login</a>
-      <a routerLink="open-boosters" routerLinkActive="active">Discover</a>
-      <a routerLink="open-boosters" routerLinkActive="active">Open Boosters</a>
-      <a routerLink="open-boosters" routerLinkActive="active">Collection</a>
-      <a routerLink="register" routerLinkActive="active">My Profile</a>
-      <a routerLink="open-boosters" routerLinkActive="active">Trade Market</a>
+    <a routerLink="browse" routerLinkActive="active">Browse</a>
+    <a routerLink="open-boosters" routerLinkActive="active">Open Boosters</a>
+    <a routerLink="open-boosters" routerLinkActive="active">Collection</a>
+    <a routerLink="" routerLinkActive="active">My Profile</a>
+    <a routerLink="open-boosters" routerLinkActive="active">Trade Market</a>
 </div>
       
 

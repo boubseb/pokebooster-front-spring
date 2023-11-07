@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { map, reduce, groupBy, filter } from 'rxjs/operators';
+import { map, reduce, groupBy, filter, tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { SetList } from '../models/SetList.model';
 import { Set } from '../models/set.model';
@@ -28,6 +28,15 @@ export class BoostersService {
     }
 
     getCardsBySetid(id :string): Observable<any>{
+        
+      return this.http.get<SetList>('https://api.pokemontcg.io/v2/cards?q=set.id:'+id,{headers:this.headers}).pipe(map(e => e.data),tap(results => {
+        results.sort((a:any, b:any)=> {
+          return a.number - b.number;}
+    )}
+    ))
+    }
+
+    getRarityCardsBySetid(id :string): Observable<any>{
         
         return this.http.get<SetList>('https://api.pokemontcg.io/v2/cards?q=set.id:'+id,{headers:this.headers}).pipe(map(e => e.data.reduce(
           (res:any, card:any)=>{

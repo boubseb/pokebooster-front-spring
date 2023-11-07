@@ -18,12 +18,15 @@ export class AuthService{
       }
 
     setToken(token: string): void {
-    this.token = token;
+    localStorage.setItem('token',token);
     // You can also store the token in a secure way, like in local storage or a cookie.
   }
 
-  getToken(): string {
-    return this.token;
+  getToken(): any {
+    return localStorage.getItem('token');
+  }
+  removeToken():void{
+    localStorage.removeItem('token')
   }
 
     registerUser(user: any): Observable<any> {

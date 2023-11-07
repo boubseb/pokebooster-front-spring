@@ -18,12 +18,9 @@ export class NavMenuComponent implements OnInit{
 
 
   Sets$!:Observable<Set[]>;
-  simulatorForm:FormGroup | any;
-  cards$!: Observable<card[]>;
+  simulatorForm:FormGroup;
   boosters$!:Observable<card[][]>;
-  cards!:any;
-  cardsListForDislay!:any;
-  display!:card[][];
+
   ParamSetData!:any;
 
 
@@ -34,36 +31,25 @@ export class NavMenuComponent implements OnInit{
       fastOpening:[false,Validators.required],
       openingChoice:['booster',Validators.required],
       nb_boosters:['1',Validators.required],
-      DisplayMode:[false,Validators.required]})
+      DisplayMode:[false,Validators.required]
+    })
 
 
   }
-  sets=[
-     "xy9",]
 
   ngOnInit(): void {
-
- 
-
     this.ParamSetData=ParamSetData
-    this.Sets$=this.BoosterService.getAllBoosters()
-    // for(let setid of this.sets){
-    //   this.BoosterService.getCardsBySetid(setid).subscribe(x=>{
-    //     console.log(setid)
-    //     console.log(Object.keys(x))})
-    // }
-  
-    
+    this.Sets$=this.BoosterService.getAllBoosters()    
   }
+
+
   onClick():void{    
     this.BoosterService.getBoosterPrice(this.simulatorForm.value.setid).subscribe(x=>{
       console.log(x)
       
     })
     
-  this.BoosterService.getCardsBySetid(this.simulatorForm.value.setid).subscribe(x=>{
-      //console.log(x)
-      this.boosters$=of([])
+  this.BoosterService.getRarityCardsBySetid(this.simulatorForm.value.setid).subscribe(x=>{
       let boosters:card[][]=[]
       let nb_booster:number=0;
    
@@ -98,15 +84,8 @@ export class NavMenuComponent implements OnInit{
           
         }
       };
-      //this.cards$=of(common)
       this.boosters$=of(boosters)
     }) ;
-    //rarity=this.cards$.subscribe(x=>{x.map(y=>{y.rarity;console.log(y.rarity)})});
-    // this.cards$.subscribe((x:card[])=>{     
-    //    console.log(x)
-    //    }
-    //   )
-      
     };
     
   
