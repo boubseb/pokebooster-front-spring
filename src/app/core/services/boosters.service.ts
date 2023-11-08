@@ -16,29 +16,28 @@ export class BoostersService {
   headers!:HttpHeaders;
 
   constructor(private http: HttpClient) {
-    const headers = new HttpHeaders({"X-Api-Key":"6ef86c9f-633b-4411-a6cd-1d8b01533a46"})
   }
 
     getAllBoosters(): Observable<Set[]>{
-            return this.http.get<SetList>('https://api.pokemontcg.io/v2/sets',{headers:this.headers}).pipe(map(e => e.data))         
+      const filters:string[]=    
+      ['basep', 'si1', 'np', 'dpp', 'ru1', 'hsp', 'bwp', 'mcd11', 'mcd12', 'xyp', 'xy0', 'mcd16', 'smp', 'mcd19', 'swshp', 'mcd14', 'mcd15', 'mcd18', 'mcd17', 'mcd21', 'bp', 'fut20', 'tk1a', 'tk1b', 'tk2a', 'tk2b', 'mcd22', 'svp', 'sve']
+            return this.http.get<SetList>('https://api.pokemontcg.io/v2/sets').pipe(map((e:any) => e.data.filter((i:any) => !filters.includes(i.id))))         
     }
 
     getBoosterPrice(id:string):Observable<any>{
-      return this.http.get<SetList>('https://api.pokemontcg.io/v2/cards?q=set.id:'+id,{headers:this.headers}).pipe(map((e:any) => {return e.data.map((card:any)=>{return card.cardmarket.prices.lowPrice}).reduce((acc:any, amount:any) => acc + amount)/e.count}))
+      return this.http.get<SetList>('https://api.pokemontcg.io/v2/cards?q=set.id:'+id).pipe(map((e:any) => {return e.data.map((card:any)=>{return card.cardmarket.prices.lowPrice}).reduce((acc:any, amount:any) => acc + amount)/e.count}))
     }
 
-    getCardsBySetid(id :string): Observable<any>{
-        
-      return this.http.get<SetList>('https://api.pokemontcg.io/v2/cards?q=set.id:'+id,{headers:this.headers}).pipe(map(e => e.data),tap(results => {
+    getCardsBySetid(id :string): Observable<any>{    
+      return this.http.get<SetList>('https://api.pokemontcg.io/v2/cards?q=set.id:'+id).pipe(map(e => e.data),tap(results => {
         results.sort((a:any, b:any)=> {
           return a.number - b.number;}
     )}
     ))
     }
 
-    getRarityCardsBySetid(id :string): Observable<any>{
-        
-        return this.http.get<SetList>('https://api.pokemontcg.io/v2/cards?q=set.id:'+id,{headers:this.headers}).pipe(map(e => e.data.reduce(
+    getRarityCardsBySetid(id :string): Observable<any>{ 
+        return this.http.get<SetList>('https://api.pokemontcg.io/v2/cards?q=set.id:'+id).pipe(map(e => e.data.reduce(
           (res:any, card:any)=>{
             if(!res[card.rarity]){
               res[card.rarity]=[]}

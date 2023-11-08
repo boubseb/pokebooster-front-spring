@@ -1,154 +1,754 @@
 {
-  "base1":{},
-  "base2":{},
-  "basep":{},
-  "base3":{},
-  "base4":{},
-  "base5":{},
-  "gym1":{},
-  "gym2":{},
-  "neo1":{},
-  "neo2":{},
-  "si1":{},
-  "neo3":{},
-  "neo4":{},
-  "base6":{},
-  "ecard1":{},
-  "ecard2":{},
-  "ecard3":{},
-  "ex1":{},
-  "ex2":{},
-  "ex3":{},
-  "np":{},
-  "ex4":{},
-  "ex5":{},
-  "ex6":{},
-  "pop1":{},
-  "ex7":{},
-  "ex8":{},
-  "ex9":{},
-  "ex10":{},
-  "pop2":{},
-  "ex11":{},
-  "ex12":{},
-  "pop3":{},
-  "ex13":{},
-  "ex14":{},
-  "pop4":{},
-  "ex15":{},
-  "pop5":{},
-  "ex16":{},
-  "dp1":{},
-  "dpp":{},
-  "dp2":{},
-  "pop6":{},
-  "dp3":{},
-  "dp4":{},
-  "pop7":{},
-  "dp5":{},
-  "dp6":{},
-  "pop8":{},
-  "dp7":{},
-  "pl1":{},
-  "pop9":{},
-  "pl2":{},
-  "pl3":{},
-  "pl4":{},
-  "ru1":{},
-  "hgss1":{},
-  "hsp":{},
-  "hgss2":{},
-  "hgss3":{},
-  "hgss4":{},
-  "col1":{},
-  "bwp":{},
-  "bw1":{},
-  "mcd11":{},
-  "bw2":{},
-  "bw3":{},
-  "bw4":{},
-  "bw5":{},
-  "mcd12":{},
-  "bw6":{},
-  "dv1":{},
-  "bw7":{},
-  "bw8":{},
-  "bw9":{},
-  "bw10":{},
-  "xyp":{},
-  "bw11":{},
-  "xy0":{},
-  "xy1":{},
-  "xy2":{},
-  "xy3":{},
-  "xy4":{},
-  "xy5":{},
-  "dc1":{},
-  "xy6":{},
-  "xy7":{},
-  "xy8":{},
-  "xy9":{},
-  "g1":{},
-  "xy10":{},
-  "xy11":{},
-  "mcd16":{},
-  "xy12":{},
-  "sm1":{},
-  "smp":{},
-  "sm2":{},
-  "sm3":{},
-  "sm35":{},
-  "sm4":{},
-  "sm5":{},
-  "sm6":{},
-  "sm7":{},
-  "sm75":{},
-  "sm8":{},
-  "sm9":{},
-  "det1":{},
-  "sm10":{},
-  "sm11":{},
-  "sm115":{},
-  "sma":{},
-  "mcd19":{},
-  "sm12":{},
-  "swshp":{},
-  "swsh1":{},
-  "swsh2":{},
-  "swsh3":{},
-  "swsh35":{},
-  "swsh4":{},
-  "swsh45":{},
-  "swsh45sv":{},
-  "swsh5":{},
-  "swsh6":{},
-  "swsh7":{},
-  "cel25":{},
-  "cel25c":{},
-  "mcd14":{},
-  "mcd15":{},
-  "mcd18":{},
-  "mcd17":{},
-  "mcd21":{},
-  "bp":{},
-  "swsh8":{},
-  "fut20":{},
-  "tk1a":{},
-  "tk1b":{},
-  "tk2a":{},
-  "tk2b":{},
-  "swsh9":{},
-  "swsh9tg":{},
-  "swsh10":{},
-  "swsh10tg":{},
-  "pgo":{},
-  "swsh11":{},
-  "swsh11tg":{},
-  "swsh12":{},
-  "swsh12tg":{},
-  "mcd22":{},
-  "swsh12pt5":{},
-  "swsh12pt5gg":{},
+  "base1":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "base2":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "basep":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "base3":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "base4":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "base5":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "gym1":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "gym2":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "neo1":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "neo2":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "si1":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "neo3":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "neo4":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "base6":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "ecard1":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "ecard2":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "ecard3":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "ex1":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "ex2":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "ex3":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "np":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "ex4":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "ex5":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "ex6":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "pop1":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "ex7":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "ex8":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "ex9":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "ex10":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "pop2":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "ex11":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "ex12":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "pop3":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "ex13":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "ex14":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "pop4":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "ex15":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "pop5":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "ex16":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "dp1":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "dpp":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "dp2":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "pop6":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "dp3":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "dp4":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "pop7":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "dp5":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "dp6":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "pop8":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "dp7":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "pl1":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "pop9":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "pl2":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "pl3":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "pl4":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "ru1":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "hgss1":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "hsp":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "hgss2":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "hgss3":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "hgss4":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "col1":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "bwp":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "bw1":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "mcd11":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "bw2":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "bw3":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "bw4":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "bw5":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "mcd12":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "bw6":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "dv1":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "bw7":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "bw8":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "bw9":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "bw10":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "xyp":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "bw11":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "xy0":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "xy1":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "xy2":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "xy3":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "xy4":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "xy5":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "dc1":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "xy6":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "xy7":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "xy8":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "xy9":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "g1":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "xy10":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "xy11":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "mcd16":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "xy12":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "sm1":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "smp":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "sm2":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "sm3":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "sm35":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "sm4":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "sm5":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "sm6":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "sm7":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "sm75":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "sm8":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "sm9":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "det1":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "sm10":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "sm11":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "sm115":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "sma":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "mcd19":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "sm12":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "swshp":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "swsh1":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "swsh2":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "swsh3":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "swsh35":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "swsh4":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "swsh45":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "swsh45sv":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "swsh5":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "swsh6":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "swsh7":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "cel25":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "cel25c":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "mcd14":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "mcd15":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "mcd18":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "mcd17":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "mcd21":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "bp":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "swsh8":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "fut20":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "tk1a":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "tk1b":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "tk2a":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "tk2b":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "swsh9":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "swsh9tg":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "swsh10":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "swsh10tg":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "pgo":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "swsh11":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "swsh11tg":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "swsh12":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "swsh12tg":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "mcd22":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "swsh12pt5":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
+  "swsh12pt5gg":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
   "sv1":[
     [{"Rarity":"Common","pourcentage":[0,100]}],
     [{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
@@ -157,7 +757,11 @@
     [{"Rarity":"Common","pourcentage":[0,40]},{"Rarity":"Uncommon","pourcentage":[40,70]},{"Rarity":"Rare","pourcentage":[70,90]},{"Rarity":"Illustration Rare","pourcentage":[90,96]},{"Rarity":"Special Illustration Rare","pourcentage":[96,99]},{"Rarity":"Hyper Rare","pourcentage":[99,100]}],
     [{"Rarity":"Rare","pourcentage":[0,75]},{"Rarity":"Double Rare","pourcentage":[75,95]},{"Rarity":"Ultra Rare","pourcentage":[95,100]}]
     ],
-  "svp":{},
+  "svp":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
   "sv2":[
     [{"Rarity":"Common","pourcentage":[0,100]}],
     [{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
@@ -166,7 +770,11 @@
     [{"Rarity":"Common","pourcentage":[0,40]},{"Rarity":"Uncommon","pourcentage":[40,70]},{"Rarity":"Rare","pourcentage":[70,90]},{"Rarity":"Illustration Rare","pourcentage":[90,96]},{"Rarity":"Special Illustration Rare","pourcentage":[96,99]},{"Rarity":"Hyper Rare","pourcentage":[99,100]}],
     [{"Rarity":"Rare","pourcentage":[0,75]},{"Rarity":"Double Rare","pourcentage":[75,95]},{"Rarity":"Ultra Rare","pourcentage":[95,100]}]
     ],
-  "sve":{},
+  "sve":[
+			[{"Rarity":"Common","pourcentage":[0,100]}],
+			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
+			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
+],
   "sv3":[
     [{"Rarity":"Common","pourcentage":[0,100]}],
     [{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
