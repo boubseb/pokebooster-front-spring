@@ -1,5 +1,6 @@
 import { Component,OnInit } from '@angular/core';
 import { BoostersService } from '../../../core/services/boosters.service';
+import { UserDataService } from '../../../core/services/userdata.service';
 import { Set } from '../../../core/models/set.model';
 import { Observable } from 'rxjs/internal/Observable';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -24,7 +25,7 @@ export class NavMenuComponent implements OnInit{
   ParamSetData!:any;
 
 
-  constructor(private formBuilder: FormBuilder,private BoosterService: BoostersService){
+  constructor(private formBuilder: FormBuilder,private BoosterService: BoostersService,private UserDataService: UserDataService){
 
     this.simulatorForm=this.formBuilder.group({
       setid: ['sv3pt5', Validators.required],
@@ -85,6 +86,8 @@ export class NavMenuComponent implements OnInit{
         }
       };
       this.boosters$=of(boosters)
+      this.UserDataService.addCardToUserCollection(boosters.reduce((accumulator, value) => accumulator.concat(value), [])).subscribe(x=>{console.log(x)})
+      console.log("done")
     }) ;
     };
     

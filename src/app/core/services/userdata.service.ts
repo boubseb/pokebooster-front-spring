@@ -15,14 +15,14 @@ export class UserDataService{
 
     addCardToUserCollection(cards:card[]) :Observable<any> {
         const headers = new HttpHeaders({'Authorization': `Bearer ${this.token}`});
-        return this.http.put('http://'+this.url+':5000/addCardToUserCollection',{headers})
+        return this.http.put('http://'+this.url+':5000/addCardToUserCollection',cards,{headers})
       }
 
 
 
     getUserCollection() :Observable<any> {
       const headers = new HttpHeaders({'Authorization': `Bearer ${this.token}`});
-      return this.http.post('http://'+this.url+':5000/test',{headers}).pipe(map((information)=>{
+      return this.http.get('http://'+this.url+':5000/UserCollection',{headers}).pipe(map((information)=>{
           return information;
         }));
     }
