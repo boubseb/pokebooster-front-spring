@@ -21,6 +21,8 @@ export class NavMenuComponent implements OnInit{
   Sets$!:Observable<Set[]>;
   simulatorForm:FormGroup;
   boosters$!:Observable<card[][]>;
+  boosterPrice!:number;
+  isDataAvailable:Boolean=false;
 
   ParamSetData!:any;
 
@@ -40,19 +42,16 @@ export class NavMenuComponent implements OnInit{
 
   ngOnInit(): void {
     this.ParamSetData=ParamSetData
-    this.Sets$=this.BoosterService.getAllBoosters()    
+    this.Sets$=this.BoosterService.getAllBoosters()   
+    this.onClickSelectBooster() 
   }
 
 
   onClick():void{    
-    this.BoosterService.getBoosterPrice(this.simulatorForm.value.setid).subscribe(x=>{
-      console.log(x)
-      
-    })
-    
+        
   this.BoosterService.getRarityCardsBySetid(this.simulatorForm.value.setid).subscribe(x=>{
       let boosters:card[][]=[]
-      let nb_booster:number=0;
+      let nb_booster=0;
    
       switch(this.simulatorForm.value.openingChoice) { 
         case "booster": { 
@@ -90,6 +89,15 @@ export class NavMenuComponent implements OnInit{
       console.log("done")
     }) ;
     };
+
+    onClickSelectBooster():void{
+
+      this.isDataAvailable = false;
+      this.BoosterService.getBoosterPrice(this.simulatorForm.value.setid).subscribe((x:any)=> {
+        this.boosterPrice=x
+        this.isDataAvailable = true; // Enable the button after data is available
+      });
+    }
     
   
 

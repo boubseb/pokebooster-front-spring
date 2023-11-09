@@ -5,10 +5,11 @@
             <div class="formulaire">
                 <mat-form-field appearance="outline" style="width: 100%;" >
                     <mat-label>Choix serie</mat-label>
-                        <mat-select formControlName="setid">
+                        <mat-select formControlName="setid" (click)="onClickSelectBooster()">
                             <mat-option *ngFor='let booster of Sets$ | async' [value]=booster.id>{{booster.name}}</mat-option>
                         </mat-select>
                 </mat-form-field>
+                <span >{{ boosterPrice|currency}}</span>
                 </div>
         </mat-toolbar-row>
         <mat-toolbar-row>
@@ -25,8 +26,8 @@
         <mat-toolbar-row>
             <mat-slide-toggle formControlName="DisplayMode" color="primary">DisplayMode</mat-slide-toggle>
         </mat-toolbar-row>
-    <mat-toolbar-row>
-        <button appearance="outline" mat-button (click)="onClick()">OPEN cards</button>
+    <mat-toolbar-row >
+        <button appearance="outline" mat-button (click)="onClick()" [disabled]="!isDataAvailable">OPEN cards</button>
     </mat-toolbar-row>
     </mat-toolbar>
 
