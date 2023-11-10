@@ -36,7 +36,7 @@ export class CollectionComponent implements OnInit{
   onDisplaySet():void{  
 
     if(this.CollectionForm.value.setid!='all'){
-      
+      this.collection.forEach(x=>console.log(x))
       this.boosters=this.collection.filter((card:any) => card.set.id === this.CollectionForm.value.setid).sort((a:any, b:any)=> {
         return a.number - b.number;})
       

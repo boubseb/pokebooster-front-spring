@@ -9,8 +9,8 @@ import { Observable } from 'rxjs';
 export class AuthService{
     constructor(private http: HttpClient) {}
     private token!: string;
-    url="88.163.1.215"
-    //url="127.0.0.1"
+    //url="88.163.1.215"
+    url="127.0.0.1"
 
 
     login(username: string, password: string): Observable<any> {
@@ -37,13 +37,5 @@ export class AuthService{
           }));
       }
 
-    getDataofuser() :Observable<any> {
-      const headers = new HttpHeaders({
-        'Authorization': `Bearer ${this.token}` // Send the token using the "Bearer" scheme
-      });
-      return this.http.post('http://'+this.url+':5000/test',{headers}).pipe(map((information)=>{
-          return information;
-        }));
-    }
 }
 

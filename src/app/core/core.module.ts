@@ -13,7 +13,7 @@ import { CardListComponent } from './components/card-list/card-list.component';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { CollectionComponent } from './components/collection/collection.component';
-
+import {MatButtonModule} from '@angular/material/button';
 
 
 @NgModule({
@@ -37,6 +37,8 @@ import { CollectionComponent } from './components/collection/collection.componen
         MatSelectModule,
         MatSlideToggleModule,
         CarouselModule.forRoot(),
+        MatButtonModule
+        
     ],
     exports: [
       HeaderComponent,

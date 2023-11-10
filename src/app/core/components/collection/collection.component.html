@@ -11,17 +11,11 @@
                 </mat-form-field>
             </div>
         </mat-toolbar-row>
-        <mat-toolbar-row>
-            <mat-button-toggle-group  style="font-size: 12px" multiple>
-                <mat-button-toggle (click)="selectAll()" checked >All</mat-button-toggle>
-                <mat-button-toggle (click)="onfilterSet(rarity)" *ngFor='let rarity of setRarities' [value]=rarity checked>{{rarity}}</mat-button-toggle>
-            </mat-button-toggle-group>
-          
-            
-        </mat-toolbar-row>
     </mat-toolbar>
 </div>
-<div >
 
-</div>
+<div class="rarity-container"  style="font-size: 12px" multiple>
+    <button class="rarity-button"  (click)="selectAll()" checked >All</button>
+    <button class="rarity-button" (click)="onfilterSet(rarity)" *ngFor='let rarity of setRarities' [value]=rarity checked>{{rarity}}</button>
+</div> 
 <app-card-list [boosters$]="boosters$" [fastOpening]="true" [DisplayMode]="false" [filterList]="setDisplayRarities"></app-card-list>
