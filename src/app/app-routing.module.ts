@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './auth/components/login/login.component';
 import { RegisterComponent } from './auth/components/register/register.component';
 import { BrowseComponent } from './core/components/browse/browse.component';
-import { CollectionComponent } from './collection/collection.component';
+import { CollectionComponent } from './core/components/collection/collection.component';
 import { AuthGuard } from './core/guards/auth.guard';
 
 const routes: Routes = [
@@ -17,7 +17,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes,{ useHash: true })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

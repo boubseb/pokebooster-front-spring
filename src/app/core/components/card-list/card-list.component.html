@@ -1,12 +1,12 @@
 <div *ngIf="DisplayMode===false" class="cardlist">
     <div class="booster" *ngFor="let booster of boosters$ | async">
-        <app-card *ngFor="let card of booster" [card]="card" [fastopening]="fastOpening"></app-card>
+        <app-card *ngFor="let card of booster" [card]="card" [fastopening]="fastOpening" [filterList]="filterList"></app-card>
     </div>
 </div>
 <div *ngIf="DisplayMode===true">
     <carousel  *ngFor="let booster of boosters$ | async" class="cardlist">
         <slide class="booster" *ngFor="let card of booster" >
-            <app-card [card]="card" [fastopening]="fastOpening" ></app-card>
+            <app-card [card]="card" [fastopening]="fastOpening" [filterList]="filterList" ></app-card>
         </slide>
     </carousel>
 </div>

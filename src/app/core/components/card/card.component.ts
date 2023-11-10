@@ -11,6 +11,7 @@ import { BoostersService } from '../../services/boosters.service';
 export class CardComponent {
   @Input() card!: card;
   @Input() fastopening!:Boolean;
+  @Input() filterList!:string[];
 
   reveal!:Boolean;
   cardPath!:string;

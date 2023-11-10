@@ -12,7 +12,7 @@ import { CardComponent } from './components/card/card.component';
 import { CardListComponent } from './components/card-list/card-list.component';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
-
+import { CollectionComponent } from './components/collection/collection.component';
 
 
 
@@ -21,7 +21,8 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
         HeaderComponent,
         BrowseComponent,
         CardComponent,
-        CardListComponent
+        CardListComponent,
+        CollectionComponent
 
     ],
     imports: [
@@ -40,7 +41,8 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     exports: [
       HeaderComponent,
       CardComponent,
-      CardListComponent
+      CardListComponent,
+      CollectionComponent
   ]
 })
 export class CoreModule { }

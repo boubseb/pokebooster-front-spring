@@ -12,10 +12,11 @@ import { BoostersService } from '../../services/boosters.service';
 export class CardListComponent {
 
 
-  @Input() cards$!: Observable<card[]>;
+
   @Input() boosters$!:Observable<card[][]>;
   @Input() fastOpening!:Boolean;
   @Input() DisplayMode!:Boolean;
+  @Input() filterList!:string[];
   mobile!:Boolean;
 
   constructor(private BoosterService: BoostersService){

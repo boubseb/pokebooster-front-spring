@@ -1,0 +1,27 @@
+<div class="formulaire" [formGroup]="CollectionForm">
+    <mat-toolbar>   
+        <mat-toolbar-row>
+            <div class="formulaire">
+                <mat-form-field appearance="outline" style="width: 100%;" >
+                    <mat-label>Choix serie</mat-label>
+                        <mat-select formControlName="setid">
+                            <mat-option (click)="onDisplaySet()" value="all">All</mat-option>
+                            <mat-option (click)="onDisplaySet()" *ngFor='let booster of Sets$ | async' [value]=booster.id>{{booster.name}}</mat-option>
+                        </mat-select>
+                </mat-form-field>
+            </div>
+        </mat-toolbar-row>
+        <mat-toolbar-row>
+            <mat-button-toggle-group  style="font-size: 12px" multiple>
+                <mat-button-toggle (click)="selectAll()" checked >All</mat-button-toggle>
+                <mat-button-toggle (click)="onfilterSet(rarity)" *ngFor='let rarity of setRarities' [value]=rarity checked>{{rarity}}</mat-button-toggle>
+            </mat-button-toggle-group>
+          
+            
+        </mat-toolbar-row>
+    </mat-toolbar>
+</div>
+<div >
+
+</div>
+<app-card-list [boosters$]="boosters$" [fastOpening]="true" [DisplayMode]="false" [filterList]="setDisplayRarities"></app-card-list>

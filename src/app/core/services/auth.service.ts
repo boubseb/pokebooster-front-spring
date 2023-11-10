@@ -9,7 +9,8 @@ import { Observable } from 'rxjs';
 export class AuthService{
     constructor(private http: HttpClient) {}
     private token!: string;
-    url="127.0.0.1"
+    url="88.163.1.215"
+    //url="127.0.0.1"
 
 
     login(username: string, password: string): Observable<any> {
