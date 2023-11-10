@@ -36,16 +36,15 @@ export class CollectionComponent implements OnInit{
   onDisplaySet():void{  
 
     if(this.CollectionForm.value.setid!='all'){
-      this.collection.forEach(x=>console.log(x))
-      this.boosters=this.collection.filter((card:any) => card.set.id === this.CollectionForm.value.setid).sort((a:any, b:any)=> {
-        return a.number - b.number;})
+      this.boosters=this.collection.filter((card:any) => card.object.set.id === this.CollectionForm.value.setid).sort((a:any, b:any)=> {
+        return a.object.number - b.object.number;})
       
       } 
     else{
-      this.boosters=this.collection.sort((a:any, b:any) => a.set.id.localeCompare(b.set.id))
+      this.boosters=this.collection.sort((a:any, b:any) => a.object.set.id.localeCompare(b.object.set.id))
     }
 
-    this.setRarities=this.boosters.map((card:any) => card.rarity).filter((value, index, array) => array.indexOf(value) === index);
+    this.setRarities=this.boosters.map((card:any) => card.object.rarity).filter((value, index, array) => array.indexOf(value) === index);
     this.setDisplayRarities=this.setRarities
     this.boosters$=of([this.boosters]);
          
@@ -75,6 +74,7 @@ export class CollectionComponent implements OnInit{
       this.Sets$=this.BoosterService.getAllBoosters()
       this.UserDataService.getUserCollection().subscribe(x=>{
         this.collection=x
+        console.log(x)
         this.onDisplaySet()
         
       })

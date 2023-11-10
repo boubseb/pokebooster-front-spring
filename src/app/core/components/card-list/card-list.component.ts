@@ -17,6 +17,7 @@ export class CardListComponent {
   @Input() fastOpening!:Boolean;
   @Input() DisplayMode!:Boolean;
   @Input() filterList!:string[];
+  @Input() collection?:Boolean;
   mobile!:Boolean;
 
   constructor(private BoosterService: BoostersService){

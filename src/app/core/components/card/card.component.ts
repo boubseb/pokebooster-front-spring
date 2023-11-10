@@ -9,18 +9,26 @@ import { BoostersService } from '../../services/boosters.service';
   styleUrls: ['./card.component.scss']
 })
 export class CardComponent {
-  @Input() card!: card;
+  @Input() card!: any;
   @Input() fastopening!:Boolean;
   @Input() filterList!:string[];
+  @Input() collection ?:Boolean;
 
   reveal!:Boolean;
   cardPath!:string;
+  count?:number;
 
   constructor(private BoosterService: BoostersService){
   
   }
   
   ngOnInit(): void {
+    if(this.collection){
+      this.count=this.card.count
+      this.card=this.card.object
+      
+    }
+
     if(this.fastopening){
       this.reveal=true;
       this.cardPath=this.card.images.small
@@ -29,6 +37,7 @@ export class CardComponent {
       this.reveal=false;
       this.cardPath="/assets/pokemon_recto.png";
     }
+
   }
   onClick():void{
       console.log("click")

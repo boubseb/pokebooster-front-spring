@@ -1,4 +1,6 @@
-<div class="card" *ngIf="filterList ===undefined || filterList.includes(card.rarity) ">     
+<div class="card" *ngIf="filterList ===undefined ||filterList.includes(card.rarity) ">     
         <img (click)="onClick()" [src]="cardPath"/>
         {{card.cardmarket.prices.averageSellPrice |currency}}
+        <br>
+        {{count}}
     </div>

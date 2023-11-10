@@ -18,4 +18,4 @@
     <button class="rarity-button"  (click)="selectAll()" checked >All</button>
     <button class="rarity-button" (click)="onfilterSet(rarity)" *ngFor='let rarity of setRarities' [value]=rarity checked>{{rarity}}</button>
 </div> 
-<app-card-list [boosters$]="boosters$" [fastOpening]="true" [DisplayMode]="false" [filterList]="setDisplayRarities"></app-card-list>
+<app-card-list [boosters$]="boosters$" [fastOpening]="true" [DisplayMode]="false" [filterList]="setDisplayRarities" [collection]="true"></app-card-list>
