@@ -53,59 +53,89 @@ export class NavMenuComponent implements OnInit{
 
 
   onBuyBoosters():void{  
+    let y=0
+
+    switch(this.simulatorForm.value.openingChoice) { 
+    
+      case "booster": { 
+
+        y=this.boosterPrice*this.ParamSetData[this.simulatorForm.value.setid].length
+        break; 
+      } 
+      case "Display": { 
+        y=this.boosterPrice*this.ParamSetData[this.simulatorForm.value.setid].length*20
+         break; 
+      } 
+      case "few_boosters": {     
+         y=this.boosterPrice*this.ParamSetData[this.simulatorForm.value.setid].length*this.simulatorForm.value.nb_boosters
+         break; 
+      } 
+   } 
   
     this.isLoading=true;
-    this.BoosterService.getRarityCardsBySetid(this.simulatorForm.value.setid).subscribe(x=>{
-        let boosters:card[][]=[]
-        let nb_booster=0;
-     
-        switch(this.simulatorForm.value.openingChoice) { 
-          case "booster": { 
-            nb_booster=1;
-            this.PokedollarsService.buyboosters(this.boosterPrice*this.ParamSetData[this.simulatorForm.value.setid].length)
-            break; 
-          } 
-          case "Display": { 
-             nb_booster=20;
-             this.PokedollarsService.buyboosters(this.boosterPrice*this.ParamSetData[this.simulatorForm.value.setid].length*20)
-             break; 
-          } 
-          case "few_boosters": { 
-             nb_booster=this.simulatorForm.value.nb_boosters
-             this.PokedollarsService.buyboosters(this.boosterPrice*this.ParamSetData[this.simulatorForm.value.setid].length*this.simulatorForm.value.nb_booster)
-
-             break; 
-          } 
-       } 
-        let random=0;
-        for(let i=0;i<nb_booster;i++){
-          boosters.push([])
-          this.boosters$=of(boosters)
-          for(let j=0;j<this.ParamSetData[this.simulatorForm.value.setid].length;j++){
-            random=Math.random()*100
-            for(let k=0;k<this.ParamSetData[this.simulatorForm.value.setid][j].length;k++){    
-                let pourcentage=this.ParamSetData[this.simulatorForm.value.setid][j][k].pourcentage
-                if(pourcentage[0]<random && random<pourcentage[1]){
-                  let Rarity=this.ParamSetData[this.simulatorForm.value.setid][j][k]['Rarity']
-                  let card = x[Rarity][Math.floor(Math.random()*x[Rarity].length)]
-                  boosters[i].push(card)
-                }
+    this.PokedollarsService.buyboostersapi({'money':y}).subscribe(x=>{
+  
+      if(x){
+        this.BoosterService.getRarityCardsBySetid(this.simulatorForm.value.setid).subscribe(x=>{
+          let boosters:card[][]=[]
+          let nb_booster=0;
+       
+          switch(this.simulatorForm.value.openingChoice) { 
+            case "booster": { 
+              nb_booster=1;
+              this.PokedollarsService.buyboosters(this.boosterPrice*this.ParamSetData[this.simulatorForm.value.setid].length)
+              break; 
+            } 
+            case "Display": { 
+               nb_booster=20;
+               this.PokedollarsService.buyboosters(this.boosterPrice*this.ParamSetData[this.simulatorForm.value.setid].length*20)
+               break; 
+            } 
+            case "few_boosters": { 
+               nb_booster=this.simulatorForm.value.nb_boosters
+               this.PokedollarsService.buyboosters(this.boosterPrice*this.ParamSetData[this.simulatorForm.value.setid].length*this.simulatorForm.value.nb_booster)
+  
+               break; 
+            } 
+         } 
+          let random=0;
+          for(let i=0;i<nb_booster;i++){
+            boosters.push([])
+            this.boosters$=of(boosters)
+            for(let j=0;j<this.ParamSetData[this.simulatorForm.value.setid].length;j++){
+              random=Math.random()*100
+              for(let k=0;k<this.ParamSetData[this.simulatorForm.value.setid][j].length;k++){    
+                  let pourcentage=this.ParamSetData[this.simulatorForm.value.setid][j][k].pourcentage
+                  if(pourcentage[0]<random && random<pourcentage[1]){
+                    let Rarity=this.ParamSetData[this.simulatorForm.value.setid][j][k]['Rarity']
+                    let card = x[Rarity][Math.floor(Math.random()*x[Rarity].length)]
+                    boosters[i].push(card)
+                  }
+              }
+              
             }
-            
-          }
-        };
-        this.boosters$=of(boosters)
-        this.UserDataService.addCardToUserCollection(boosters.reduce((accumulator, value) => accumulator.concat(value), [])).subscribe(x=>{console.log(x)})
-        console.log(this.isLoading)
-        console.log("done")
-      },
-      (error) => {
-        console.error('Error fetching data', error);
-      },
-      () => {
-        this.isLoading = false; // Reset the loading state after the observable completes
+          };
+          this.boosters$=of(boosters)
+          this.UserDataService.addCardToUserCollection(boosters.reduce((accumulator, value) => accumulator.concat(value), [])).subscribe(x=>{console.log(x)})
+          console.log(this.isLoading)
+          console.log("done")
+        },
+        (error) => {
+          console.error('Error fetching data', error);
+        },
+        () => {
+          this.isLoading = false; // Reset the loading state after the observable completes
+        }
+        )
+
       }
-      )
+      else{
+        console.log('not enought money')
+
+      }
+  
+  })
+    
     
     };
 

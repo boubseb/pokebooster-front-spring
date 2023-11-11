@@ -11,21 +11,25 @@ import { PokedollarsService } from '../../services/pokedollars.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit{
+
   constructor(private AuthService:AuthService,private router: Router,private PokedollarsService: PokedollarsService){}
   
   userPokedollars$!: Observable<number>;
-  //pseudo$!:Observable<string>;
+  pseudo$!:Observable<string>;
   pseudo!:string;
 
   onLogout():void{
     this.AuthService.removeToken()
     this.AuthService.removePseudo()
+    this.PokedollarsService.removeUserMoney()
     this.router.navigateByUrl('/');
   }
   ngOnInit(): void {
+ 
     this.userPokedollars$ = this.PokedollarsService.userMoney$;
-    //this.pseudo$=this.AuthService.userPseudo$;
-    this.pseudo=this.AuthService.getPseudo()
+    this.pseudo$=this.AuthService.userPseudo$;
+
+
   }
 
 }

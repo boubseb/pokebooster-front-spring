@@ -6,7 +6,7 @@
     </div>
     <div class="pseudo" *ngIf="userPokedollars$  | async as data">
         <div *ngIf="data>-1">
-            <!-- {{ pseudo$ | async }}-->{{pseudo}}: {{ userPokedollars$ | async |currency}} 
+            {{ pseudo$ | async }}: {{ userPokedollars$ | async |currency}} 
         </div>
     </div>
     <h1>Pokeboosters</h1>

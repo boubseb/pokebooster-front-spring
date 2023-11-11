@@ -10,8 +10,8 @@ export class AuthService{
     constructor(private http: HttpClient) {}
 
 
-    url="88.163.1.215"
-    //url="127.0.0.1"
+    //url="88.163.1.215"
+    url="127.0.0.1"
 
 
     username!:string;
@@ -19,7 +19,7 @@ export class AuthService{
     pseudo!:string;
 
 
-    private userPseudoSubject: BehaviorSubject<string> = new BehaviorSubject<string>(""); // Initial user money
+    private userPseudoSubject: BehaviorSubject<any> = new BehaviorSubject<any>(localStorage.getItem('pseudo')); // Initial user money
     userPseudo$: Observable<string> = this.userPseudoSubject.asObservable();
 
    
@@ -28,6 +28,7 @@ export class AuthService{
         const body = { username, password };
         return this.http.post('http://'+this.url+':5000/login', body);
       }
+
 
   setToken(token: string): void {
     localStorage.setItem('token',token);
@@ -47,31 +48,32 @@ export class AuthService{
 // ;
 //   }
 
-//   setPseudo(pseudo:string):void{
-//     this.userPseudoSubject.next(pseudo)
-    
-//   }
+    // getPseudo():any{
+    //   console.log(localStorage.getItem('pseudo'))
+    //   return localStorage.getItem('pseudo');
+    // }
 
 
   setPseudo(pseudo:string):void{
     localStorage.setItem('pseudo',pseudo);
+    this.userPseudoSubject.next(pseudo);
   }
 
   removePseudo():void{
     localStorage.removeItem('pseudo')
+    this.userPseudoSubject.next("")
   }
-  getPseudo():any{
-    return localStorage.getItem('pseudo');
-  }
+
 
   registerUser(user: any): Observable<any> {
       console.log(user)    
       return this.http.post('http://'+this.url+':5000/register', user).pipe(map((information)=>{
           return information;
-        }));
+      }));
   }
 
-
- 
+  buyboosters(amount: any): Observable<any> {
+    return this.http.get('http://'+this.url+':5000/buyBoosters', amount)
+}
 }
 
