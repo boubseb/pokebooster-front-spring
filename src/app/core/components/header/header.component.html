@@ -4,9 +4,9 @@
         <a routerLink="auth/register" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true}">Register</a>
         <a (click)="onLogout()">Logout</a>
     </div>
-    <div *ngIf="userPokedollars$  | async as data">
+    <div class="pseudo" *ngIf="userPokedollars$  | async as data">
         <div *ngIf="data>-1">
-            {{ userPokedollars$ | async }}
+            {{ pseudo$ | async }}: {{ userPokedollars$ | async |currency}}
         </div>
     </div>
     <h1>Pokeboosters</h1>

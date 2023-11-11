@@ -14,11 +14,11 @@
         </mat-toolbar-row>
         <mat-toolbar-row>
             <mat-button-toggle-group  formControlName="openingChoice" style="font-size: 12px">
-                <mat-button-toggle value="booster">Booster</mat-button-toggle>
-                <mat-button-toggle value="Display">Display</mat-button-toggle>
+                <mat-button-toggle value="booster"(click)="canPay(1)">Booster</mat-button-toggle>
+                <mat-button-toggle value="Display" (click)="canPay(20)">Display</mat-button-toggle>
                 <mat-button-toggle value="few_boosters">Custom</mat-button-toggle>
             </mat-button-toggle-group>
-            <input appearance="outline" *ngIf="simulatorForm.value.openingChoice ==='few_boosters'" formControlName="nb_boosters" type="number" placeholder="1" step="1" min="1" max="20" matInput>
+            <input  appearance="outline" *ngIf="simulatorForm.value.openingChoice ==='few_boosters'" formControlName="nb_boosters" type="number" placeholder="1" step="1" min="1" max="20"  matInput>
         </mat-toolbar-row>
         <mat-toolbar-row>
             <mat-slide-toggle formControlName="fastOpening" color="primary">fastOpening</mat-slide-toggle>
@@ -27,7 +27,8 @@
             <mat-slide-toggle formControlName="DisplayMode" color="primary">DisplayMode</mat-slide-toggle>
         </mat-toolbar-row>
     <mat-toolbar-row >
-        <button appearance="outline" mat-button (click)="onClick()" [disabled]="!isDataAvailable">OPEN cards</button>
+        <button appearance="outline" mat-button (click)="onBuyBoosters()" [disabled]="!isDataAvailable|| isLoading||!CanPay">OPEN cards</button>
+        <mat-spinner *ngIf="!isDataAvailable|| isLoading" style="margin-left:5px;width: 30px;"></mat-spinner>
     </mat-toolbar-row>
     </mat-toolbar>
 

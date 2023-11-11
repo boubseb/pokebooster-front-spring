@@ -14,6 +14,7 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { OpenBoostersRoutingModule } from './open-boosters-routing.module';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { CoreModule } from '../core/core.module';
 
 @NgModule({
@@ -32,7 +33,7 @@ import { CoreModule } from '../core/core.module';
     MatToolbarModule,
     MatSelectModule,
     CarouselModule.forRoot(),
-    
+    MatProgressSpinnerModule,
   ],
   exports:[
     NavMenuComponent

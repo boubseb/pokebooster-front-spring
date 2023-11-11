@@ -16,6 +16,7 @@ import { CollectionComponent } from './components/collection/collection.componen
 import {MatButtonModule} from '@angular/material/button';
 
 
+
 @NgModule({
     declarations: [
         HeaderComponent,
@@ -37,7 +38,7 @@ import {MatButtonModule} from '@angular/material/button';
         MatSelectModule,
         MatSlideToggleModule,
         CarouselModule.forRoot(),
-        MatButtonModule
+        MatButtonModule,
         
     ],
     exports: [

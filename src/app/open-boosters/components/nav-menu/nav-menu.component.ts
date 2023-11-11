@@ -25,8 +25,10 @@ export class NavMenuComponent implements OnInit{
   boosters$!:Observable<card[][]>;
   boosterPrice!:number;
   isDataAvailable:Boolean=false;
+  isLoading:boolean= false;
 
   ParamSetData!:any;
+  CanPay:boolean=false;
 
 
   constructor(private formBuilder: FormBuilder,private BoosterService: BoostersService,
@@ -50,48 +52,65 @@ export class NavMenuComponent implements OnInit{
   }
 
 
-  onClick():void{  
-  this.PokedollarsService.updateUserMoney(10)  
+  onBuyBoosters():void{  
+  
+  if(this.CanPay){
+    this.PokedollarsService.buyboosters(this.boosterPrice*this.ParamSetData[this.simulatorForm.value.setid].length*this.simulatorForm.value.nb_booster);
+    this.isLoading = true
+    this.BoosterService.getRarityCardsBySetid(this.simulatorForm.value.setid).subscribe(x=>{
         
-  this.BoosterService.getRarityCardsBySetid(this.simulatorForm.value.setid).subscribe(x=>{
-      let boosters:card[][]=[]
-      let nb_booster=0;
-   
-      switch(this.simulatorForm.value.openingChoice) { 
-        case "booster": { 
-          nb_booster=1;
-          break; 
-        } 
-        case "Display": { 
-           nb_booster=20;
-           break; 
-        } 
-        case "few_boosters": { 
-           nb_booster=this.simulatorForm.value.nb_boosters
-           break; 
-        } 
-     } 
-      let random=0;
-      for(let i=0;i<nb_booster;i++){
-        boosters.push([])
-        this.boosters$=of(boosters)
-        for(let j=0;j<this.ParamSetData[this.simulatorForm.value.setid].length;j++){
-          random=Math.random()*100
-          for(let k=0;k<this.ParamSetData[this.simulatorForm.value.setid][j].length;k++){    
-              let pourcentage=this.ParamSetData[this.simulatorForm.value.setid][j][k].pourcentage
-              if(pourcentage[0]<random && random<pourcentage[1]){
-                let Rarity=this.ParamSetData[this.simulatorForm.value.setid][j][k]['Rarity']
-                let card = x[Rarity][Math.floor(Math.random()*x[Rarity].length)]
-                boosters[i].push(card)
-              }
+        console.log(this.isLoading)
+        let boosters:card[][]=[]
+        let nb_booster=0;
+     
+        switch(this.simulatorForm.value.openingChoice) { 
+          case "booster": { 
+            nb_booster=1;
+            break; 
+          } 
+          case "Display": { 
+             nb_booster=20;
+             break; 
+          } 
+          case "few_boosters": { 
+             nb_booster=this.simulatorForm.value.nb_boosters
+             break; 
+          } 
+       } 
+        let random=0;
+        for(let i=0;i<nb_booster;i++){
+          boosters.push([])
+          this.boosters$=of(boosters)
+          for(let j=0;j<this.ParamSetData[this.simulatorForm.value.setid].length;j++){
+            random=Math.random()*100
+            for(let k=0;k<this.ParamSetData[this.simulatorForm.value.setid][j].length;k++){    
+                let pourcentage=this.ParamSetData[this.simulatorForm.value.setid][j][k].pourcentage
+                if(pourcentage[0]<random && random<pourcentage[1]){
+                  let Rarity=this.ParamSetData[this.simulatorForm.value.setid][j][k]['Rarity']
+                  let card = x[Rarity][Math.floor(Math.random()*x[Rarity].length)]
+                  boosters[i].push(card)
+                }
+            }
+            
           }
-          
-        }
-      };
-      this.boosters$=of(boosters)
-      this.UserDataService.addCardToUserCollection(boosters.reduce((accumulator, value) => accumulator.concat(value), [])).subscribe(x=>{console.log(x)})
-      console.log("done")
-    }) ;
+        };
+        this.boosters$=of(boosters)
+        this.UserDataService.addCardToUserCollection(boosters.reduce((accumulator, value) => accumulator.concat(value), [])).subscribe(x=>{console.log(x)})
+        console.log(this.isLoading)
+        console.log("done")
+      },
+      (error) => {
+        console.error('Error fetching data', error);
+      },
+      () => {
+        this.isLoading = false; // Reset the loading state after the observable completes
+      }
+      ) 
+    
+  }
+  
+;
+    
     };
 
     onClickSelectBooster():void{
@@ -102,6 +121,11 @@ export class NavMenuComponent implements OnInit{
         this.isDataAvailable = true; // Enable the button after data is available
         ;
       });
+    }
+
+    canPay(x:number):void{
+      this.CanPay= (this.PokedollarsService.getUserMoney()>(this.boosterPrice*this.ParamSetData[this.simulatorForm.value.setid].length*x))
+    
     }
     
   

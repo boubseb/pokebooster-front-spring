@@ -13,7 +13,9 @@ header {
   gap: 10px; /* Add some spacing between the links */
   float: right;
 }
-
+.pseudo{
+  float: left;
+}
 .header-links a {
   text-decoration: none;
   color: #000; /* Set the color you prefer */

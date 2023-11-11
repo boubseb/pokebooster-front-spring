@@ -12,18 +12,11 @@ export class AuthService{
     url="127.0.0.1"
     username!:string;
     pokedollars!:number;
+    pseudo!:string;
+    private userPseudoSubject: BehaviorSubject<string> = new BehaviorSubject<string>(""); // Initial user money
+    userPseudo$: Observable<string> = this.userPseudoSubject.asObservable();
 
-    private userPokedollarsSubject: BehaviorSubject<number> = new BehaviorSubject<number>(-1); // Initial user money
-    userMoney$: Observable<number> = this.userPokedollarsSubject.asObservable();
-
-  getUserMoney(): number {
-    return this.userPokedollarsSubject.value;
-  }
-
-  updateUserMoney(amount: number): void {
-    const currentMoney = this.userPokedollarsSubject.value;
-    this.userPokedollarsSubject.next(currentMoney - amount);
-  }
+   
 
   login(username: string, password: string): Observable<any> {
         const body = { username, password };
@@ -41,6 +34,18 @@ export class AuthService{
 
   removeToken():void{
     localStorage.removeItem('token')
+  }
+
+
+
+  removePseudo():void{
+    this.userPseudoSubject.next("")
+;
+  }
+
+  setPseudo(pseudo:string):void{
+    this.userPseudoSubject.next(pseudo)
+    
   }
 
   registerUser(user: any): Observable<any> {

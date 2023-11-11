@@ -14,13 +14,16 @@ export class HeaderComponent implements OnInit{
   constructor(private AuthService:AuthService,private router: Router,private PokedollarsService: PokedollarsService){}
   
   userPokedollars$!: Observable<number>;
+  pseudo$!:Observable<string>;
 
   onLogout():void{
     this.AuthService.removeToken()
+    this.AuthService.removePseudo()
     this.router.navigateByUrl('/');
   }
   ngOnInit(): void {
     this.userPokedollars$ = this.PokedollarsService.userMoney$;
+    this.pseudo$=this.AuthService.userPseudo$;
   }
 
 }
