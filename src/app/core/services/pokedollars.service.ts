@@ -9,8 +9,8 @@ export class PokedollarsService {
     constructor(private http: HttpClient) {}
     private token!: string;
 
-    //url="88.163.1.215"
-    url="127.0.0.1"
+    url="88.163.1.215"
+    //url="127.0.0.1"
     private userPokedollarsSubject: BehaviorSubject<number> = new BehaviorSubject<number>(-1); // Initial user money
     userMoney$: Observable<number> = this.userPokedollarsSubject.asObservable();
 

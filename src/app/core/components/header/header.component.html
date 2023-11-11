@@ -6,7 +6,7 @@
     </div>
     <div class="pseudo" *ngIf="userPokedollars$  | async as data">
         <div *ngIf="data>-1">
-            {{ pseudo$ | async }}: {{ userPokedollars$ | async |currency}}
+            <!-- {{ pseudo$ | async }}-->{{pseudo}}: {{ userPokedollars$ | async |currency}} 
         </div>
     </div>
     <h1>Pokeboosters</h1>
@@ -16,12 +16,16 @@
 
 
 <div class="menu">
-    <a routerLink="browse" routerLinkActive="active">Browse</a>
-    <a routerLink="open-boosters" routerLinkActive="active">Open Boosters</a>
-    <a routerLink="/collection" routerLinkActive="active">Collection</a>
-    <a routerLink="" routerLinkActive="active">My Profile</a>
-    <a routerLink="open-boosters" routerLinkActive="active">Trade Market</a>
+    <div>
+        <a routerLink="browse" routerLinkActive="active">Browse</a>
+        <a routerLink="open-boosters" routerLinkActive="active">Open Boosters</a>
+        <a routerLink="/collection" routerLinkActive="active">Collection</a>
+        <a routerLink="" routerLinkActive="active">My Profile</a>
+        <a routerLink="open-boosters" routerLinkActive="active">Trade Market</a>
+    </div>
+   <br>
 </div>
+
       
 
 

@@ -14,7 +14,8 @@ export class HeaderComponent implements OnInit{
   constructor(private AuthService:AuthService,private router: Router,private PokedollarsService: PokedollarsService){}
   
   userPokedollars$!: Observable<number>;
-  pseudo$!:Observable<string>;
+  //pseudo$!:Observable<string>;
+  pseudo!:string;
 
   onLogout():void{
     this.AuthService.removeToken()
@@ -23,7 +24,8 @@ export class HeaderComponent implements OnInit{
   }
   ngOnInit(): void {
     this.userPokedollars$ = this.PokedollarsService.userMoney$;
-    this.pseudo$=this.AuthService.userPseudo$;
+    //this.pseudo$=this.AuthService.userPseudo$;
+    this.pseudo=this.AuthService.getPseudo()
   }
 
 }

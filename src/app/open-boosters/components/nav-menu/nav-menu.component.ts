@@ -38,7 +38,7 @@ export class NavMenuComponent implements OnInit{
       setid: ['sv3pt5', Validators.required],
       fastOpening:[false,Validators.required],
       openingChoice:['booster',Validators.required],
-      nb_boosters:['1',Validators.required],
+      nb_boosters:[1,Validators.required],
       DisplayMode:[false,Validators.required]
     })
 
@@ -54,26 +54,26 @@ export class NavMenuComponent implements OnInit{
 
   onBuyBoosters():void{  
   
-  if(this.CanPay){
-    this.PokedollarsService.buyboosters(this.boosterPrice*this.ParamSetData[this.simulatorForm.value.setid].length*this.simulatorForm.value.nb_booster);
-    this.isLoading = true
+    this.isLoading=true;
     this.BoosterService.getRarityCardsBySetid(this.simulatorForm.value.setid).subscribe(x=>{
-        
-        console.log(this.isLoading)
         let boosters:card[][]=[]
         let nb_booster=0;
      
         switch(this.simulatorForm.value.openingChoice) { 
           case "booster": { 
             nb_booster=1;
+            this.PokedollarsService.buyboosters(this.boosterPrice*this.ParamSetData[this.simulatorForm.value.setid].length)
             break; 
           } 
           case "Display": { 
              nb_booster=20;
+             this.PokedollarsService.buyboosters(this.boosterPrice*this.ParamSetData[this.simulatorForm.value.setid].length*20)
              break; 
           } 
           case "few_boosters": { 
              nb_booster=this.simulatorForm.value.nb_boosters
+             this.PokedollarsService.buyboosters(this.boosterPrice*this.ParamSetData[this.simulatorForm.value.setid].length*this.simulatorForm.value.nb_booster)
+
              break; 
           } 
        } 
@@ -105,11 +105,7 @@ export class NavMenuComponent implements OnInit{
       () => {
         this.isLoading = false; // Reset the loading state after the observable completes
       }
-      ) 
-    
-  }
-  
-;
+      )
     
     };
 
@@ -123,8 +119,23 @@ export class NavMenuComponent implements OnInit{
       });
     }
 
-    canPay(x:number):void{
-      this.CanPay= (this.PokedollarsService.getUserMoney()>(this.boosterPrice*this.ParamSetData[this.simulatorForm.value.setid].length*x))
+    canPay():boolean{
+      switch(this.simulatorForm.value.openingChoice){
+        case "booster":{
+          return this.PokedollarsService.getUserMoney()>(this.boosterPrice*this.ParamSetData[this.simulatorForm.value.setid].length)
+          break;
+        }
+        case "Display":{
+          return this.PokedollarsService.getUserMoney()>(this.boosterPrice*this.ParamSetData[this.simulatorForm.value.setid].length*20)
+          break;
+        }
+        case "few_boosters":{
+          return this.PokedollarsService.getUserMoney()>(this.boosterPrice*this.ParamSetData[this.simulatorForm.value.setid].length*this.simulatorForm.value.nb_boosters)
+          break;
+        }
+      }
+      return false
+      
     
     }
     

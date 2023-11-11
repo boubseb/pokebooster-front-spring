@@ -5,13 +5,14 @@ import { RegisterComponent } from './auth/components/register/register.component
 import { BrowseComponent } from './core/components/browse/browse.component';
 import { CollectionComponent } from './core/components/collection/collection.component';
 import { AuthGuard } from './core/guards/auth.guard';
+import { NoAuthGuard } from './core/guards/noauth.guard';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'browse', pathMatch: 'full' }, // Redirect to login
+  { path: '', redirectTo: 'browse', pathMatch: 'full' }, // Redirect to home
   {path:'browse',component:BrowseComponent},
   {path:'collection',component:CollectionComponent,canActivate: [AuthGuard]},
-  { path: 'auth/login', component: LoginComponent },
-  { path: 'auth/register', component: RegisterComponent },
+  { path: 'auth/login', component: LoginComponent,canActivate: [NoAuthGuard] },
+  { path: 'auth/register', component: RegisterComponent,canActivate: [NoAuthGuard] },
   { path: 'open-boosters',  loadChildren: () => import('./open-boosters/open-boosters.module').then(m => m.OpenBoostersModule) },
 
 ];

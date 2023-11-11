@@ -23,13 +23,12 @@ export class LoginComponent implements OnInit {
 
 
   onLogin(username:string,password:string):void {
-    
     this.AuthService.login(username,password).subscribe(
       (response: any) => {
         if (response.access_token) {
-          this.AuthService.setToken(response.access_token);
-          this.PokedollarsService.setUserMoney(response.money);
-          this.AuthService.setPseudo(username);
+          // this.AuthService.setToken(response.access_token);
+          // this.PokedollarsService.setUserMoney(response.money);
+          // this.AuthService.setPseudo(username);
           // Redirect to a protected route upon successful login
           this.router.navigateByUrl('/open-boosters');
         } else {

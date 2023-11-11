@@ -74,7 +74,6 @@ export class CollectionComponent implements OnInit{
       this.Sets$=this.BoosterService.getAllBoosters()
       this.UserDataService.getUserCollection().subscribe(x=>{
         this.collection=x
-        console.log(x)
         this.onDisplaySet()
         
       })

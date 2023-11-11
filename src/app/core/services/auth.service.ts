@@ -8,11 +8,17 @@ import { Observable,BehaviorSubject } from 'rxjs';
 })
 export class AuthService{
     constructor(private http: HttpClient) {}
-    //url="88.163.1.215"
-    url="127.0.0.1"
+
+
+    url="88.163.1.215"
+    //url="127.0.0.1"
+
+
     username!:string;
     pokedollars!:number;
     pseudo!:string;
+
+
     private userPseudoSubject: BehaviorSubject<string> = new BehaviorSubject<string>(""); // Initial user money
     userPseudo$: Observable<string> = this.userPseudoSubject.asObservable();
 
@@ -36,16 +42,26 @@ export class AuthService{
     localStorage.removeItem('token')
   }
 
+//   removePseudo():void{
+//     this.userPseudoSubject.next("")
+// ;
+//   }
 
+//   setPseudo(pseudo:string):void{
+//     this.userPseudoSubject.next(pseudo)
+    
+//   }
 
-  removePseudo():void{
-    this.userPseudoSubject.next("")
-;
-  }
 
   setPseudo(pseudo:string):void{
-    this.userPseudoSubject.next(pseudo)
-    
+    localStorage.setItem('pseudo',pseudo);
+  }
+
+  removePseudo():void{
+    localStorage.removeItem('pseudo')
+  }
+  getPseudo():any{
+    return localStorage.getItem('pseudo');
   }
 
   registerUser(user: any): Observable<any> {
@@ -55,5 +71,7 @@ export class AuthService{
         }));
   }
 
+
+ 
 }
 
