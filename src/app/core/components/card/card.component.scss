@@ -19,9 +19,9 @@
     }
   }
 
-  @media (max-width: 1000px) {
+  @media (max-width: 768px) {
     .card {
-      display: left;
+      display: center;
       flex-wrap: wrap;
       margin: 1.5625% 1.5625% 3.125% 0;
       box-sizing: border-box;
@@ -40,5 +40,9 @@
         font-size: 16px;
       }
     }
+}
+
+.hidden {
+  display: block; /* Hide the container if the condition is not met */
 }
   

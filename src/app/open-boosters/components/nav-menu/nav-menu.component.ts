@@ -1,6 +1,8 @@
 import { Component,OnInit } from '@angular/core';
 import { BoostersService } from '../../../core/services/boosters.service';
 import { UserDataService } from '../../../core/services/userdata.service';
+import { PokedollarsService } from '../../../core/services/pokedollars.service';
+
 import { Set } from '../../../core/models/set.model';
 import { Observable } from 'rxjs/internal/Observable';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -27,7 +29,8 @@ export class NavMenuComponent implements OnInit{
   ParamSetData!:any;
 
 
-  constructor(private formBuilder: FormBuilder,private BoosterService: BoostersService,private UserDataService: UserDataService){
+  constructor(private formBuilder: FormBuilder,private BoosterService: BoostersService,
+    private UserDataService: UserDataService,private PokedollarsService:PokedollarsService){
 
     this.simulatorForm=this.formBuilder.group({
       setid: ['sv3pt5', Validators.required],
@@ -47,7 +50,8 @@ export class NavMenuComponent implements OnInit{
   }
 
 
-  onClick():void{    
+  onClick():void{  
+  this.PokedollarsService.updateUserMoney(10)  
         
   this.BoosterService.getRarityCardsBySetid(this.simulatorForm.value.setid).subscribe(x=>{
       let boosters:card[][]=[]
@@ -96,6 +100,7 @@ export class NavMenuComponent implements OnInit{
       this.BoosterService.getBoosterPrice(this.simulatorForm.value.setid).subscribe((x:any)=> {
         this.boosterPrice=x
         this.isDataAvailable = true; // Enable the button after data is available
+        ;
       });
     }
     

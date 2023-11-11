@@ -1,21 +1,20 @@
 <div class="formulaire" [formGroup]="CollectionForm">
     <mat-toolbar>   
         <mat-toolbar-row>
-            <div class="formulaire">
-                <mat-form-field appearance="outline" style="width: 100%;" >
-                    <mat-label>Choix serie</mat-label>
-                        <mat-select formControlName="setid">
-                            <mat-option (click)="onDisplaySet()" value="all">All</mat-option>
-                            <mat-option (click)="onDisplaySet()" *ngFor='let booster of Sets$ | async' [value]=booster.id>{{booster.name}}</mat-option>
-                        </mat-select>
-                </mat-form-field>
-            </div>
+            <mat-form-field appearance="outline" style="width: 100%;" >
+                <mat-label>Choix serie</mat-label>
+                    <mat-select formControlName="setid">
+                        <mat-option (click)="onDisplaySet()" value="all">All</mat-option>
+                        <mat-option (click)="onDisplaySet()" *ngFor='let booster of Sets$ | async' [value]=booster.id>{{booster.name}}</mat-option>
+                    </mat-select>
+            </mat-form-field>
         </mat-toolbar-row>
     </mat-toolbar>
+    <div class="rarity-container">
+        <button mat-button class="rarity-button"  (click)="selectAll()" checked >All</button>
+        <button mat-button class="rarity-button" (click)="onfilterSet(rarity)" *ngFor='let rarity of setRarities' [value]=rarity checked>{{rarity}}</button>
+    </div>
 </div>
 
-<div class="rarity-container"  style="font-size: 12px" multiple>
-    <button class="rarity-button"  (click)="selectAll()" checked >All</button>
-    <button class="rarity-button" (click)="onfilterSet(rarity)" *ngFor='let rarity of setRarities' [value]=rarity checked>{{rarity}}</button>
-</div> 
+
 <app-card-list [boosters$]="boosters$" [fastOpening]="true" [DisplayMode]="false" [filterList]="setDisplayRarities" [collection]="true"></app-card-list>

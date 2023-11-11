@@ -3,10 +3,10 @@
         <app-card *ngFor="let card of booster" [card]="card" [fastopening]="fastOpening" [filterList]="filterList" [collection]="collection"></app-card>
     </div>
 </div>
-<div *ngIf="DisplayMode===true">
-    <carousel  *ngFor="let booster of boosters$ | async" class="cardlist">
-        <slide class="booster" *ngFor="let card of booster" >
-            <app-card [card]="card" [fastopening]="fastOpening" [filterList]="filterList" [collection]="collection" ></app-card>
+<div *ngIf="DisplayMode===true" class="cardlist">
+    <carousel  *ngFor="let booster of boosters$ | async" >
+        <slide class="booster" *ngFor="let card of booster">
+            <app-card [card]="card" [fastopening]="fastOpening" [filterList]="filterList" [collection]="collection" [DisplayMode]="DisplayMode" ></app-card>
         </slide>
     </carousel>
 </div>

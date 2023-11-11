@@ -13,6 +13,7 @@ export class CardComponent {
   @Input() fastopening!:Boolean;
   @Input() filterList!:string[];
   @Input() collection ?:Boolean;
+  @Input() DisplayMode ?:Boolean;
 
   reveal!:Boolean;
   cardPath!:string;
@@ -29,28 +30,18 @@ export class CardComponent {
       
     }
 
-    if(this.fastopening){
-      this.reveal=true;
-      this.cardPath=this.card.images.small
-    }
-    else{
-      this.reveal=false;
-      this.cardPath="/assets/pokemon_recto.png";
-    }
+    // if(this.fastopening){
+    //   this.reveal=true;
+    //   this.cardPath=this.card.images.small
+    // }
+    // else{
+    //   this.reveal=false;
+    //   this.cardPath="/assets/pokemon_recto.png";
+    // }
 
   }
   onClick():void{
-      console.log("click")
-      if(this.reveal==false){
-        this.reveal=true;
-        this.cardPath=this.card.images.small
-      }
-      else{
-        this.reveal=false;
-        this.cardPath='/assets/pokemon_recto.png'
-      }
-
-
+      this.fastopening=!this.fastopening
   }
   
   

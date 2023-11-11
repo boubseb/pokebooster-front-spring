@@ -1,6 +1,15 @@
-<div class="card" *ngIf="filterList ===undefined ||filterList.includes(card.rarity) ">     
-        <img (click)="onClick()" [src]="cardPath"/>
-        {{card.cardmarket.prices.averageSellPrice |currency}}
-        <br>
-        {{count}}
+<div class="card" *ngIf="filterList ===undefined ||filterList.includes(card.rarity) " [ngClass]="{ 'hidden': DisplayMode===true }">  
+    <div *ngIf="fastopening">
+        <img (click)="onClick()" [src]="card.images.small"/>
     </div>
+    <div *ngIf="!fastopening">
+        <img (click)="onClick()" src="/assets/pokemon_recto.png"/>
+    </div>
+    <div *ngIf="collection">
+        Quantity: {{count}}
+        <br>
+        Market price: {{card.cardmarket.prices.averageSellPrice |currency}}
+    </div>
+</div>
+
+
