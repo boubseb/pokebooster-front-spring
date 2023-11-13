@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
-import { Observable,BehaviorSubject } from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Injectable({
     providedIn:'root'
@@ -10,17 +10,17 @@ export class AuthService{
     constructor(private http: HttpClient) {}
 
 
-    url="88.163.1.215"
-    //url="127.0.0.1"
+    //url="88.163.1.215"
+    url="127.0.0.1"
 
 
     username!:string;
     pokedollars!:number;
     pseudo!:string;
+    private token!:string;
 
 
-    private userPseudoSubject: BehaviorSubject<any> = new BehaviorSubject<any>(localStorage.getItem('pseudo')); // Initial user money
-    userPseudo$: Observable<string> = this.userPseudoSubject.asObservable();
+ 
 
    
 
@@ -43,26 +43,8 @@ export class AuthService{
     localStorage.removeItem('token')
   }
 
-//   removePseudo():void{
-//     this.userPseudoSubject.next("")
-// ;
-//   }
-
-    // getPseudo():any{
-    //   console.log(localStorage.getItem('pseudo'))
-    //   return localStorage.getItem('pseudo');
-    // }
 
 
-  setPseudo(pseudo:string):void{
-    localStorage.setItem('pseudo',pseudo);
-    this.userPseudoSubject.next(pseudo);
-  }
-
-  removePseudo():void{
-    localStorage.removeItem('pseudo')
-    this.userPseudoSubject.next("")
-  }
 
 
   registerUser(user: any): Observable<any> {
@@ -75,5 +57,10 @@ export class AuthService{
   buyboosters(amount: any): Observable<any> {
     return this.http.get('http://'+this.url+':5000/buyBoosters', amount)
 }
+
+  getUserData(): Observable<any> {
+    const headers = new HttpHeaders({'Authorization': `Bearer ${this.token}`});
+    return this.http.get('http://'+this.url+':5000/getUserData',{headers});
+  }
 }
 

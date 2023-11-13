@@ -27,9 +27,8 @@ export class LoginComponent implements OnInit {
       (response: any) => {
         if (response.access_token) {
           this.AuthService.setToken(response.access_token);
-          this.PokedollarsService.setUserMoney(response.money);
-          this.AuthService.setPseudo(username);
           // Redirect to a protected route upon successful login
+          this.AuthService.getUserData()
           this.router.navigateByUrl('/open-boosters');
         } else {
           // Handle login error

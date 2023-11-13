@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
 import { PokedollarsService } from '../../services/pokedollars.service';
+import { Socket } from 'ngx-socket-io';
 
 
 @Component({
@@ -12,24 +12,35 @@ import { PokedollarsService } from '../../services/pokedollars.service';
 })
 export class HeaderComponent implements OnInit{
 
-  constructor(private AuthService:AuthService,private router: Router,private PokedollarsService: PokedollarsService){}
+  constructor(private AuthService:AuthService,private router: Router,private PokedollarsService: PokedollarsService,private socket: Socket){}
   
-  userPokedollars$!: Observable<number>;
-  pseudo$!:Observable<string>;
+
   pseudo!:string;
+  userdata:any={'user':'','money':0};
 
   onLogout():void{
     this.AuthService.removeToken()
-    this.AuthService.removePseudo()
-    this.PokedollarsService.removeUserMoney()
     this.router.navigateByUrl('/');
   }
   ngOnInit(): void {
- 
-    this.userPokedollars$ = this.PokedollarsService.userMoney$;
-    this.pseudo$=this.AuthService.userPseudo$;
+    if(this.isLogin()){
+      this.refreshValue();
+    }
+    // Listen for the 'value_updated' event
+    this.socket.fromEvent('value_updated').subscribe((data: any) => {
+      this.userdata = data;
+      console.log(this.userdata)
+    });
+  }
 
+  isLogin():boolean{
+    return this.AuthService.getToken()!==null
+  }
 
+  refreshValue(): void {
+    this.PokedollarsService.getUserData().subscribe(data => {
+      this.userdata = data;
+    });
   }
 
 }

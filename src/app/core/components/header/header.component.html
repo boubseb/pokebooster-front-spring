@@ -1,13 +1,11 @@
 <header>
     <div class="header-links">
-        <a routerLink="auth/login" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true}">Login</a>
-        <a routerLink="auth/register" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true}">Register</a>
-        <a (click)="onLogout()">Logout</a>
+        <a routerLink="auth/login" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true}" *ngIf="!isLogin()">Login</a>
+        <a routerLink="auth/register" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true}" *ngIf="!isLogin()">Register</a>
+        <a (click)="onLogout()" *ngIf="isLogin()">Logout</a>
     </div>
-    <div class="pseudo" *ngIf="userPokedollars$  | async as data">
-        <div *ngIf="data>-1">
-            {{ pseudo$ | async }}: {{ userPokedollars$ | async |currency}} 
-        </div>
+    <div class="pseudo" *ngIf="isLogin()">
+        {{userdata.user}} : {{ userdata.money |currency}} 
     </div>
     <h1>Pokeboosters</h1>
 </header>
@@ -20,8 +18,8 @@
         <a routerLink="browse" routerLinkActive="active">Browse</a>
         <a routerLink="open-boosters" routerLinkActive="active">Open Boosters</a>
         <a routerLink="/collection" routerLinkActive="active">Collection</a>
-        <a routerLink="" routerLinkActive="active">My Profile</a>
-        <a routerLink="open-boosters" routerLinkActive="active">Trade Market</a>
+        <a routerLink="" routerLinkActive="active" *ngIf="isLogin()">My Profile</a>
+        <a routerLink="open-boosters" routerLinkActive="active" *ngIf="isLogin()">Trade Market</a>
     </div>
    <br>
 </div>

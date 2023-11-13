@@ -12,6 +12,8 @@ import { CoreModule } from './core/core.module';
 import { AuthModule } from './auth/auth.module';
 import { httpInterceptorProviders } from './core/interceptors';
 import {MatButtonModule} from '@angular/material/button';
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+const config: SocketIoConfig = { url: 'http://localhost:5000', options: {} };
 
 
 @NgModule({
@@ -27,7 +29,8 @@ import {MatButtonModule} from '@angular/material/button';
     AppRoutingModule,
     HttpClientModule,    
     BrowserAnimationsModule,
-    MatButtonModule
+    MatButtonModule,
+    SocketIoModule.forRoot(config),
     
   ],
   providers: [
