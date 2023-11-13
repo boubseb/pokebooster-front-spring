@@ -35,7 +35,7 @@ export class BrowseComponent {
 
   ngOnInit(): void {
 
-    this.Sets$=this.BoosterService.getAllBoosters()
+    this.Sets$=this.BoosterService.getDataSets()
     this.onDisplaySet()
   }
   onDisplaySet():void{  

@@ -71,7 +71,7 @@ export class CollectionComponent implements OnInit{
   }
 
   ngOnInit(): void {
-      this.Sets$=this.BoosterService.getAllBoosters()
+      this.Sets$=this.BoosterService.getDataSets()
       this.UserDataService.getUserCollection().subscribe(x=>{
         this.collection=x
         this.onDisplaySet()

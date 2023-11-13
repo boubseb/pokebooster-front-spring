@@ -1,12 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { map, reduce, groupBy, filter, tap } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
-import { SetList } from '../models/SetList.model';
 import { Set } from '../models/set.model';
-import { cardList } from '../models/cardList.model';
 import { card } from '../models/cards.model';
-import { ObserversModule } from '@angular/cdk/observers';
+
 
 @Injectable({
   providedIn: 'root'
@@ -15,21 +13,19 @@ export class BoostersService {
 
   headers!:HttpHeaders;
 
+      //url="88.163.1.215"
+      url="127.0.0.1"
+
   constructor(private http: HttpClient) {
   }
 
-    getAllBoosters(): Observable<Set[]>{
-      const filters:string[]=    
-      ['basep', 'si1', 'np', 'dpp', 'ru1', 'hsp', 'bwp', 'mcd11', 'mcd12', 'xyp', 'xy0', 'mcd16', 'smp', 'mcd19', 'swshp', 'mcd14', 'mcd15', 'mcd18', 'mcd17', 'mcd21', 'bp', 'fut20', 'tk1a', 'tk1b', 'tk2a', 'tk2b', 'mcd22', 'svp', 'sve']
-            return this.http.get<SetList>('https://api.pokemontcg.io/v2/sets').pipe(map((e:any) => e.data.filter((i:any) => !filters.includes(i.id))))         
+    getDataSets(): Observable<Set[]>{
+      return this.http.get<Set[]>('http://'+this.url+':5000/getDataSets')         
     }
 
-    getBoosterPrice(id:string):Observable<any>{
-      return this.http.get<SetList>('https://api.pokemontcg.io/v2/cards?q=set.id:'+id).pipe(map((e:any) => {return e.data.map((card:any)=>{return card.cardmarket.prices.lowPrice}).reduce((acc:any, amount:any) => acc + amount)/e.count}))
-    }
 
     getCardsBySetid(id :string): Observable<any>{    
-      return this.http.get<SetList>('https://api.pokemontcg.io/v2/cards?q=set.id:'+id).pipe(map(e => e.data),tap(results => {
+      return this.http.get<card[]>('http://'+this.url+':5000/getDataCards/'+id).pipe(tap((results:any) => {
         results.sort((a:any, b:any)=> {
           return a.number - b.number;}
     )}
@@ -37,7 +33,7 @@ export class BoostersService {
     }
 
     getRarityCardsBySetid(id :string): Observable<any>{ 
-        return this.http.get<SetList>('https://api.pokemontcg.io/v2/cards?q=set.id:'+id).pipe(map(e => e.data.reduce(
+        return this.http.get<card[]>('http://'+this.url+':5000/getDataCards/'+id).pipe(map(e => e.reduce(
           (res:any, card:any)=>{
             if(!res[card.rarity]){
               res[card.rarity]=[]}

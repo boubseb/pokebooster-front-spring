@@ -24,8 +24,7 @@ export class NavMenuComponent implements OnInit{
   Sets$!:Observable<Set[]>;
   simulatorForm:FormGroup;
   boosters$!:Observable<card[][]>;
-  boosterPrice!:number;
-  isDataAvailable:Boolean=false;
+  boosterPrice:any[]=[{'sv3pt5':22}]
   isLoading:boolean= false;
 
   ParamSetData!:any;
@@ -49,44 +48,46 @@ export class NavMenuComponent implements OnInit{
 
   ngOnInit(): void {
     this.ParamSetData=ParamSetData
-    this.Sets$=this.BoosterService.getAllBoosters()   
-    this.onClickSelectBooster()  
+    this.BoosterService.getDataSets().subscribe((x:any)=>{
+      this.Sets$=of(x)
+      this.boosterPrice=x.reduce((acc:any, item:any) => { acc[item.id] = item.avg_price_cards;
+        return acc;
+      }, {});
+    })
+
     this.refreshValue(); 
     // Listen for the 'value_updated' event
     this.socket.fromEvent('value_updated').subscribe((data: any) => {
-      this.userdata = data;
+    this.userdata = data;
     });
   }
-
-
 
   refreshValue(): void {
     this.PokedollarsService.getUserData().subscribe(data => {
       this.userdata = data;
     });
-    }
-  
-
+  }
 
   onBuyBoosters():void{  
     let y=0
     let nb_booster!:number
+    let setid:any=this.simulatorForm.value.setid
 
     switch(this.simulatorForm.value.openingChoice) { 
     
       case "booster": { 
         nb_booster=1
-        y=this.boosterPrice*this.ParamSetData[this.simulatorForm.value.setid].length
+        y=this.boosterPrice[setid]*this.ParamSetData[this.simulatorForm.value.setid].length
         break; 
       } 
       case "Display": { 
         nb_booster=20
-        y=this.boosterPrice*this.ParamSetData[this.simulatorForm.value.setid].length*20
+        y=this.boosterPrice[setid]*this.ParamSetData[this.simulatorForm.value.setid].length*20
          break; 
       } 
       case "few_boosters": {  
         nb_booster=this.simulatorForm.value.nb_boosters   
-         y=this.boosterPrice*this.ParamSetData[this.simulatorForm.value.setid].length*this.simulatorForm.value.nb_boosters
+         y=this.boosterPrice[setid]*this.ParamSetData[this.simulatorForm.value.setid].length*this.simulatorForm.value.nb_boosters
          break; 
       } 
    } 
@@ -135,28 +136,21 @@ export class NavMenuComponent implements OnInit{
     
     };
 
-    onClickSelectBooster():void{
-
-      this.isDataAvailable = false;
-      this.BoosterService.getBoosterPrice(this.simulatorForm.value.setid).subscribe((x:any)=> {
-        this.boosterPrice=x
-        this.isDataAvailable = true; // Enable the button after data is available
-        ;
-      });
-    }
+  
 
     canPay():boolean{
+      let setid:any=this.simulatorForm.value.setid
       switch(this.simulatorForm.value.openingChoice){
         case "booster":{
-          return  this.userdata['money']>(this.boosterPrice*this.ParamSetData[this.simulatorForm.value.setid].length)
+          return  this.userdata['money']>(this.boosterPrice[setid]*this.ParamSetData[setid].length)
           break;
         }
         case "Display":{
-          return this.userdata['money']>(this.boosterPrice*this.ParamSetData[this.simulatorForm.value.setid].length*20)
+          return this.userdata['money']>(this.boosterPrice[setid]*this.ParamSetData[setid].length*20)
           break;
         }
         case "few_boosters":{
-          return this.userdata['money']>(this.boosterPrice*this.ParamSetData[this.simulatorForm.value.setid].length*this.simulatorForm.value.nb_boosters)
+          return this.userdata['money']>(this.boosterPrice[setid]*this.ParamSetData[setid].length*this.simulatorForm.value.nb_boosters)
           break;
         }
       }
