@@ -4,6 +4,7 @@ import * as fr from '@angular/common/locales/fr'
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import {BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -33,7 +34,7 @@ const config: SocketIoConfig = { url: 'http://localhost:5000', options: {} };
     SocketIoModule.forRoot(config),
     
   ],
-  providers: [
+  providers: [{provide: LOCALE_ID,useValue: 'fr-FR'},
     {provide: LocationStrategy, useClass: HashLocationStrategy},
     httpInterceptorProviders
 ],

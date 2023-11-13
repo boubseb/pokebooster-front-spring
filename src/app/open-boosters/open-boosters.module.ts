@@ -16,6 +16,7 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { OpenBoostersRoutingModule } from './open-boosters-routing.module';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { CoreModule } from '../core/core.module';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { CoreModule } from '../core/core.module';
     MatSelectModule,
     CarouselModule.forRoot(),
     MatProgressSpinnerModule,
+    MatIconModule
   ],
   exports:[
     NavMenuComponent

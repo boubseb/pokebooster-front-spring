@@ -2,24 +2,29 @@
     <mat-toolbar>   
         <mat-toolbar-row>
             <div class="formulaire">
-                <mat-form-field appearance="outline" style="width: 100%;" >
+                <mat-form-field appearance="outline" style="display:inline-block" >
                     <mat-label>Choix serie</mat-label>
                         <mat-select formControlName="setid">
-                            <mat-option *ngFor='let booster of Sets$ | async' [value]=booster.id>{{booster.name}}</mat-option>
+                            <mat-option (click)="onDisplaySet()" *ngFor='let booster of Sets$ | async' [value]=booster.id>{{booster.name}}</mat-option>
                         </mat-select>
                 </mat-form-field>
+                <mat-spinner *ngIf="isLoading" style="margin-left:5px;width: 30px;display: inline-block;"></mat-spinner>
                 </div>
         </mat-toolbar-row>
         <mat-toolbar-row>
             <mat-slide-toggle formControlName="DisplayMode" color="primary">DisplayMode</mat-slide-toggle>
         </mat-toolbar-row>
-        <mat-toolbar-row>
-            <button appearance="outline" mat-button (click)="onDisplaySet()">View</button>
-        </mat-toolbar-row>
+
+     
     </mat-toolbar>
+    <div class="rarity-container">
+        <button mat-button class="rarity-button"  (click)="selectAll()" [class.selected]="isItemSelected('all')" ><mat-icon>refresh</mat-icon></button>
+        <button mat-button class="rarity-button" (click)="onfilterSet(rarity)" *ngFor='let rarity of setRarities' [value]=rarity [class.selected]="isItemSelected(rarity)">{{rarity}}</button>
+    </div>
+    <br>
 </div>
 
-<app-card-list [boosters$]="boosters$" [DisplayMode]="BrowseForm.value.DisplayMode" [fastOpening]="fastopening" ></app-card-list>
+<app-card-list [boosters$]="boosters$" [DisplayMode]="BrowseForm.value.DisplayMode" [fastOpening]="fastopening"  [filterList]="setDisplayRarities"></app-card-list>
     
 
 

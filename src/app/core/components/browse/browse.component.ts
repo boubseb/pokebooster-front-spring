@@ -18,6 +18,9 @@ export class BrowseComponent {
   Sets$!:Observable<Set[]>;
   boosters$!:Observable<card[][]>;
   fastopening:Boolean=true;
+  setRarities!:string[]
+  setDisplayRarities:string[]=['all']
+  isLoading:boolean=false;
 
   constructor(private formBuilder: FormBuilder,private BoosterService: BoostersService){
 
@@ -28,25 +31,50 @@ export class BrowseComponent {
 
     }
 
+    
+
   ngOnInit(): void {
 
- 
-
-
     this.Sets$=this.BoosterService.getAllBoosters()
-
-  
-    
+    this.onDisplaySet()
   }
   onDisplaySet():void{  
+    this.isLoading=true;
 
     
-  this.BoosterService.getCardsBySetid(this.BrowseForm.value.setid).subscribe(x=>{
+      this.BoosterService.getCardsBySetid(this.BrowseForm.value.setid).subscribe(x=>{
       //console.log(x)
+      this.setRarities=x.map((card:any) => card.rarity).filter((value:any, index:any, array:any) => array.indexOf(value) === index);
+      this.setDisplayRarities=this.setRarities
       this.boosters$=of([x])
+      this.isLoading=false;
       
     });
     
 
+}
+
+onfilterSet(rarity:string):void{
+  if (this.setDisplayRarities.includes(rarity)) {
+    this.setDisplayRarities=this.setDisplayRarities.filter(value => value !== rarity);
+  }
+  else{
+    this.setDisplayRarities.push(rarity)
+  }
+
+}
+
+selectAll():void{
+  if(this.setDisplayRarities.length===0){
+    this.setDisplayRarities=this.setRarities
+  }
+  else{
+    this.setDisplayRarities=[]
+  }
+
+}
+
+isItemSelected(item: string): boolean {
+  return this.setDisplayRarities.includes(item);
 }
 }

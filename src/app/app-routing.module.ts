@@ -6,10 +6,12 @@ import { BrowseComponent } from './core/components/browse/browse.component';
 import { CollectionComponent } from './core/components/collection/collection.component';
 import { AuthGuard } from './core/guards/auth.guard';
 import { NoAuthGuard } from './core/guards/noauth.guard';
+import { UserProfilComponent } from './core/components/user-profil/user-profil.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'browse', pathMatch: 'full' }, // Redirect to home
   {path:'browse',component:BrowseComponent},
+  {path:'profil',component:UserProfilComponent,canActivate:[AuthGuard]},
   {path:'collection',component:CollectionComponent,canActivate: [AuthGuard]},
   { path: 'auth/login', component: LoginComponent,canActivate: [NoAuthGuard] },
   { path: 'auth/register', component: RegisterComponent,canActivate: [NoAuthGuard] },

@@ -14,7 +14,9 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { CollectionComponent } from './components/collection/collection.component';
 import {MatButtonModule} from '@angular/material/button';
-
+import { UserProfilComponent } from './components/user-profil/user-profil.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatIconModule} from '@angular/material/icon';
 
 
 @NgModule({
@@ -23,7 +25,8 @@ import {MatButtonModule} from '@angular/material/button';
         BrowseComponent,
         CardComponent,
         CardListComponent,
-        CollectionComponent
+        CollectionComponent,
+        UserProfilComponent
 
     ],
     imports: [
@@ -39,6 +42,8 @@ import {MatButtonModule} from '@angular/material/button';
         MatSlideToggleModule,
         CarouselModule.forRoot(),
         MatButtonModule,
+        MatProgressSpinnerModule,
+        MatIconModule
         
     ],
     exports: [

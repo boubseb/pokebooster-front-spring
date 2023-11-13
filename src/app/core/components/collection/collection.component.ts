@@ -26,7 +26,7 @@ export class CollectionComponent implements OnInit{
   constructor(private formBuilder: FormBuilder,private BoosterService: BoostersService,private UserDataService: UserDataService){
 
     this.CollectionForm=this.formBuilder.group({
-      setid: ['sv3pt5', Validators.required],
+      setid: ['all', Validators.required],
       DisplayMode:[false,Validators.required]
       });
 
@@ -77,6 +77,10 @@ export class CollectionComponent implements OnInit{
         this.onDisplaySet()
         
       })
+  }
+
+  isItemSelected(item: string): boolean {
+    return this.setDisplayRarities.includes(item);
   }
 
 

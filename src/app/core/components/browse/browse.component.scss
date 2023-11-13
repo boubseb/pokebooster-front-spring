@@ -1,0 +1,20 @@
+.rarity-container{
+    display:flex;
+    flex-wrap: wrap;
+    text-align: center;
+    background-color: #f5f5f5;
+}
+.rarity-button{  
+    position: relative;
+    display: inline-block;
+}
+
+.selected {
+    background-color: gray; 
+    color: white;
+  }
+
+  .formulaire{
+    background-color: #f5f5f5;
+  
+}

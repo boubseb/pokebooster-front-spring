@@ -106,7 +106,6 @@ export class NavMenuComponent implements OnInit{
                   if(pourcentage[0]<random && random<pourcentage[1]){
                     let Rarity=this.ParamSetData[this.simulatorForm.value.setid][j][k]['Rarity']
                     let card = x[Rarity][Math.floor(Math.random()*x[Rarity].length)]
-                    console.log(card)
                     boosters[i].push(card)
                   }
               }
@@ -114,7 +113,6 @@ export class NavMenuComponent implements OnInit{
             }
           };
           this.boosters$=of(boosters)
-          console.log(boosters)
           this.UserDataService.addCardToUserCollection(boosters.reduce((accumulator, value) => accumulator.concat(value), [])).subscribe(x=>{console.log(x)})
           console.log("done")
         },
@@ -162,9 +160,7 @@ export class NavMenuComponent implements OnInit{
           break;
         }
       }
-      return false
-      
-    
+      return false   
     }
     
   

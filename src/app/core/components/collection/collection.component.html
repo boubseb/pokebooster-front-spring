@@ -11,9 +11,10 @@
         </mat-toolbar-row>
     </mat-toolbar>
     <div class="rarity-container">
-        <button mat-button class="rarity-button"  (click)="selectAll()" checked >All</button>
-        <button mat-button class="rarity-button" (click)="onfilterSet(rarity)" *ngFor='let rarity of setRarities' [value]=rarity checked>{{rarity}}</button>
+        <button mat-button class="rarity-button"  (click)="selectAll()" [class.selected]="isItemSelected('all')"><mat-icon>refresh</mat-icon></button>
+        <button mat-button class="rarity-button" (click)="onfilterSet(rarity)" *ngFor='let rarity of setRarities' [value]=rarity [class.selected]="isItemSelected(rarity)">{{rarity}}</button>
     </div>
+    <br>
 </div>
 
 

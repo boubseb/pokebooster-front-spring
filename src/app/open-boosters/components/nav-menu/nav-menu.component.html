@@ -37,6 +37,7 @@
         <button appearance="outline" mat-button (click)="onBuyBoosters()" [disabled]="!isDataAvailable|| isLoading|| !canPay()">OPEN cards</button>
         <mat-spinner *ngIf="!isDataAvailable|| isLoading" style="margin-left:5px;width: 30px;"></mat-spinner>
     </mat-toolbar-row>
+
     </mat-toolbar>
 
 

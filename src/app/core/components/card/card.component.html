@@ -1,8 +1,8 @@
 <div class="card" *ngIf="filterList ===undefined ||filterList.includes(card.rarity) " [ngClass]="{ 'hidden': DisplayMode===true }">  
-    <div *ngIf="fastopening">
+    <div *ngIf="fastopening || collection">
         <img (click)="onClick()" [src]="card.images.small"/>
     </div>
-    <div *ngIf="!fastopening">
+    <div *ngIf="!fastopening && !collection">
         <img (click)="onClick()" src="/assets/pokemon_recto.png"/>
     </div>
     <div *ngIf="collection">

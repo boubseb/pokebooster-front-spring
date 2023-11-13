@@ -15,6 +15,17 @@ header {
 }
 .pseudo{
   float: left;
+  .header-links a {
+    text-decoration: none;
+    color: #000; /* Set the color you prefer */
+    padding: 5px 10px; /* Adjust padding as needed */
+    
+  }
+  
+  .header-links a:hover {
+    background-color: #000; /* Change background color on hover */
+    color: #fff; /* Change text color on hover */
+  }
 }
 .header-links a {
   text-decoration: none;
