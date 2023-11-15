@@ -19,7 +19,7 @@ export class HeaderComponent implements OnInit{
     private PokedollarsService: PokedollarsService,private socket: Socket,
     private socketService: SocketService){
       const token = this.AuthService.getToken()
-      this.socket = new Socket({ url: 'http://localhost:5000', options: { transportOptions: { polling: { extraHeaders: { Authorization: `Bearer ${token}` } } } } });
+      this.socket = new Socket({ url: 'http://88.163.1.215:5000', options: { transportOptions: { polling: { extraHeaders: { Authorization: `Bearer ${token}` } } } } });
       
     }
   

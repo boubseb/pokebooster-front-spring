@@ -10,8 +10,8 @@ import { card } from '../models/cards.model';
 export class UserDataService{
     constructor(private http: HttpClient) {}
     private token!: string;
-   // url="88.163.1.215"
-    url="127.0.0.1"
+    url="88.163.1.215"
+    //url="127.0.0.1"
 
 
     addCardToUserCollection(cards:card[]) :Observable<any> {

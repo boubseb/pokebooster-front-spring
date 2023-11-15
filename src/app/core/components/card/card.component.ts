@@ -41,7 +41,10 @@ export class CardComponent {
 
   }
   onClick():void{
-      this.fastopening=!this.fastopening
+      if(this.filterList===undefined){
+        this.fastopening=!this.fastopening
+      }
+      
   }
   
   

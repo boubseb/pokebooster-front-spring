@@ -16,7 +16,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 
 
-const config: SocketIoConfig = { url: 'http://127.0.0.1:5000', options: {
+const config: SocketIoConfig = { url: 'http://88.163.1.215:5000', options: {
   withCredentials: true,
 } };
 
