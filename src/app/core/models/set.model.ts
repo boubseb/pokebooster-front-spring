@@ -1,5 +1,3 @@
-import { ImageBooster } from "./ImageBooster.model"
-import { Legalities } from "./legalities.model"
 
 export class Set {
     data!:data
@@ -19,4 +17,15 @@ export class Set {
     releaseDate!: string
     updatedAt!: string
     images!: ImageBooster
+  }
+
+  export class Legalities {
+    unlimited!: string
+    expanded?: string
+    standard?: string
+  }
+
+  export class ImageBooster {
+    symbol!: string
+    logo!: string
   }

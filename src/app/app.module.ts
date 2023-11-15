@@ -14,7 +14,11 @@ import { AuthModule } from './auth/auth.module';
 import { httpInterceptorProviders } from './core/interceptors';
 import {MatButtonModule} from '@angular/material/button';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
-const config: SocketIoConfig = { url: 'http://localhost:5000', options: {} };
+
+
+const config: SocketIoConfig = { url: 'http://127.0.0.1:5000', options: {
+  withCredentials: true,
+} };
 
 
 @NgModule({

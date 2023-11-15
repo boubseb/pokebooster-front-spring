@@ -50,21 +50,23 @@ export class NavMenuComponent implements OnInit{
     this.ParamSetData=ParamSetData
     this.BoosterService.getDataSets().subscribe((x:any)=>{
       this.Sets$=of(x)
+
       this.boosterPrice=x.reduce((acc:any, item:any) => { acc[item.id] = item.avg_price_cards;
         return acc;
       }, {});
     })
 
     this.refreshValue(); 
-    // Listen for the 'value_updated' event
-    this.socket.fromEvent('value_updated').subscribe((data: any) => {
-    this.userdata = data;
-    });
+    
+    this.socket.fromEvent(`value_updated`).subscribe((data: any) => {
+      this.userdata = data;
+      console.log(this.userdata)
+     });   
   }
 
   refreshValue(): void {
     this.PokedollarsService.getUserData().subscribe(data => {
-      this.userdata = data;
+      this.userdata = data;   
     });
   }
 

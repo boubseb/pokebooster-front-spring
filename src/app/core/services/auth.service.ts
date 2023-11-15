@@ -29,6 +29,18 @@ export class AuthService{
         return this.http.post('http://'+this.url+':5000/login', body);
       }
 
+  changePAssword(password: string): Observable<any> {
+    const headers = new HttpHeaders({'Authorization': `Bearer ${this.token}`});
+        const body = { password };
+        return this.http.post('http://'+this.url+':5000/changePassword', body,{headers}).pipe(map((x:any)=>x.message));
+      }
+
+  deleteAccount():Observable<any>{
+    console.log('delete')
+    const headers = new HttpHeaders({'Authorization': `Bearer ${this.token}`});
+    return this.http.put('http://'+this.url+':5000/deleteAccount',{headers}).pipe(map((x:any)=>{x.message;console.log(x)}));
+  }
+
 
   setToken(token: string): void {
     localStorage.setItem('token',token);
@@ -42,9 +54,6 @@ export class AuthService{
   removeToken():void{
     localStorage.removeItem('token')
   }
-
-
-
 
 
   registerUser(user: any): Observable<any> {

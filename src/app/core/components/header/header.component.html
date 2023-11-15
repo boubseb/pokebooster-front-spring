@@ -6,11 +6,13 @@
         <a (click)="onLogout()" *ngIf="isLogin()">Logout</a>
     </div>
     <div class="pseudo" *ngIf="isLogin()">
-        Welcom <span style="font-weight: bold">{{userdata.user}}</span> ! &emsp; &emsp; Pokedollars :<span style="font-weight: bold;color:green">{{ userdata.money |currency:'KRW':'symbol':'1.0-0'}} </span>
+        Welcom <span style="font-weight: bold">{{userdata.user}}</span> ! 
+    <div >Pokedollars :<span style="font-weight: bold;color:green">{{ userdata.money |currency:'KRW':'symbol':'1.0-0'}} </span></div>
        
-        
-    </div>
+      </div>  
+    <div class="titre">
     <h1>Pokeboosters</h1>
+    </div>
 </header>
 
 
@@ -21,7 +23,7 @@
         <a routerLink="browse" routerLinkActive="active">Browse</a>
         <a routerLink="open-boosters" routerLinkActive="active">Open Boosters</a>
         <a routerLink="/collection" routerLinkActive="active" *ngIf="isLogin()">My Collection</a>
-        <a routerLink="open-boosters" routerLinkActive="active" *ngIf="isLogin()">Trade Market</a>
+        <a routerLink="trade" routerLinkActive="active" *ngIf="isLogin()">Trade Market</a>
     </div>
    <br>
 </div>

@@ -10,7 +10,7 @@ import { card } from '../models/cards.model';
 export class UserDataService{
     constructor(private http: HttpClient) {}
     private token!: string;
-    //url="88.163.1.215"
+   // url="88.163.1.215"
     url="127.0.0.1"
 
 
@@ -26,6 +26,13 @@ export class UserDataService{
       return this.http.get('http://'+this.url+':5000/UserCollection',{headers}).pipe(map((information)=>{
           return information;
         }));
+    }
+
+
+    
+    getUserData(): Observable<any> {
+      const headers = new HttpHeaders({'Authorization': `Bearer ${this.token}`});
+      return this.http.get('http://'+this.url+':5000/getUserData',{headers});
     }
 }
 
