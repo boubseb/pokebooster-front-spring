@@ -354,11 +354,6 @@
 			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
 			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
 ],
-  "dv1":[
-			[{"Rarity":"Common","pourcentage":[0,100]}],
-			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],
-			[{"Rarity":"Uncommon","pourcentage":[0,100]}]
-],
   "bw7":[
 			[{"Rarity":"Common","pourcentage":[0,100]}],
 			[{"Rarity":"Common","pourcentage":[0,66]},{"Rarity":"Uncommon","pourcentage":[66,100]}],

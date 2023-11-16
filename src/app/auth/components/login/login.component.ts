@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { FormGroup, Validators,FormBuilder } from '@angular/forms';
-import { PokedollarsService } from 'src/app/core/services/pokedollars.service';
+import { SharedService } from 'src/app/core/services/shared.service';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +11,9 @@ import { PokedollarsService } from 'src/app/core/services/pokedollars.service';
 })
 export class LoginComponent implements OnInit { 
   LoginForm: FormGroup;
-  constructor(private AuthService:AuthService,private router:Router,private formBuilder: FormBuilder,private PokedollarsService:PokedollarsService){
+  constructor(private AuthService:AuthService,private router:Router,private formBuilder: FormBuilder,
+    private SharedService: SharedService){
+
     this.LoginForm = this.formBuilder.group({
       username: ['', [Validators.required]],
       password: ['', [Validators.required]]
@@ -27,8 +29,7 @@ export class LoginComponent implements OnInit {
       (response: any) => {
         if (response.access_token) {
           this.AuthService.setToken(response.access_token);
-          // Redirect to a protected route upon successful login
-          this.AuthService.getUserData()
+          this.SharedService.setAuthenticationStatus(true);
           this.router.navigateByUrl('/open-boosters');
         } else {
           // Handle login error
@@ -38,7 +39,7 @@ export class LoginComponent implements OnInit {
       (error) => {
         // Handle login error
         console.error('Login failed:', error);
-      }
+      },
     );
   }
 

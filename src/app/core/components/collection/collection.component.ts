@@ -71,7 +71,10 @@ export class CollectionComponent implements OnInit{
   }
 
   ngOnInit(): void {
-      this.Sets$=this.BoosterService.getDataSets()
+      this.BoosterService.getDataSets().subscribe((x:any)=>{
+        let filters=['sv3pt5','sv1','sv2','sv3','sv4']
+        this.Sets$=of(x.filter((value: any): boolean => {return filters.includes(value.data.id)}))
+      })
       this.UserDataService.getUserCollection().subscribe(x=>{
         this.collection=x
         this.onDisplaySet()

@@ -49,7 +49,8 @@ export class NavMenuComponent implements OnInit{
   ngOnInit(): void {
     this.ParamSetData=ParamSetData
     this.BoosterService.getDataSets().subscribe((x:any)=>{
-      this.Sets$=of(x)
+      let filters=['sv3pt5','sv1','sv2','sv3','sv4']
+      this.Sets$=of(x.filter((value: any): boolean => {return filters.includes(value.data.id)}))
 
       this.boosterPrice=x.reduce((acc:any, item:any) => { acc[item.id] = item.avg_price_cards;
         return acc;
