@@ -5,7 +5,7 @@
         <a routerLink="/profil" routerLinkActive="active" *ngIf="isLogin()">My Profil</a>
         <a (click)="onLogout()" *ngIf="isLogin()">Logout</a>
     </div>
-    <div class="pseudo" *ngIf="isLogin()">
+    <div class="pseudo" *ngIf="userdata!==undefined">
         Welcom <span style="font-weight: bold">{{userdata.user}}</span> ! 
     <div >Pokedollars :<span style="font-weight: bold;color:green">{{ userdata.money |currency:'KRW':'symbol':'1.0-0'}} </span></div>
        
