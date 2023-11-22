@@ -10,20 +10,20 @@ import { card } from '../models/cards.model';
 export class UserDataService{
     constructor(private http: HttpClient) {}
     private token!: string;
-    url="88.163.1.215"
-    //url="127.0.0.1"
+    url="https://pkboostersapi.fr"
+    //url="http://127.0.0.1:5000"
 
 
     addCardToUserCollection(cards:card[]) :Observable<any> {
         const headers = new HttpHeaders({'Authorization': `Bearer ${this.token}`});
-        return this.http.put('http://'+this.url+':5000/addCardToUserCollection',cards,{headers})
+        return this.http.put(this.url+'/addCardToUserCollection',cards,{headers})
       }
 
 
 
     getUserCollection() :Observable<any> {
       const headers = new HttpHeaders({'Authorization': `Bearer ${this.token}`});
-      return this.http.get('http://'+this.url+':5000/UserCollection',{headers}).pipe(map((information)=>{
+      return this.http.get(this.url+'/UserCollection',{headers}).pipe(map((information)=>{
           return information;
         }));
     }
@@ -32,7 +32,7 @@ export class UserDataService{
     
     getUserData(): Observable<any> {
       const headers = new HttpHeaders({'Authorization': `Bearer ${this.token}`});
-      return this.http.get('http://'+this.url+':5000/getUserData',{headers});
+      return this.http.get(this.url+'/getUserData',{headers});
     }
 }
 

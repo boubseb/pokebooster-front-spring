@@ -10,8 +10,8 @@ export class AuthService{
     constructor(private http: HttpClient) {}
 
 
-    url="88.163.1.215"
-    //url="127.0.0.1"
+    url="https://pkboostersapi.fr"
+    //url="http://127.0.0.1:5000"
 
 
     username!:string;
@@ -26,19 +26,19 @@ export class AuthService{
 
   login(username: string, password: string): Observable<any> {
         const body = { username, password };
-        return this.http.post('http://'+this.url+':5000/login', body);
+        return this.http.post(this.url+'/login', body);
       }
 
   changePAssword(password: string): Observable<any> {
     const headers = new HttpHeaders({'Authorization': `Bearer ${this.token}`});
         const body = { password };
-        return this.http.post('http://'+this.url+':5000/changePassword', body,{headers}).pipe(map((x:any)=>x.message));
+        return this.http.post(this.url+'/changePassword', body,{headers}).pipe(map((x:any)=>x.message));
       }
 
   deleteAccount():Observable<any>{
     console.log('delete')
     const headers = new HttpHeaders({'Authorization': `Bearer ${this.token}`});
-    return this.http.put('http://'+this.url+':5000/deleteAccount',{headers}).pipe(map((x:any)=>{x.message;console.log(x)}));
+    return this.http.put(this.url+'/deleteAccount',{headers}).pipe(map((x:any)=>{x.message;console.log(x)}));
   }
 
 
@@ -58,18 +58,18 @@ export class AuthService{
 
   registerUser(user: any): Observable<any> {
       console.log(user)    
-      return this.http.post('http://'+this.url+':5000/register', user).pipe(map((information)=>{
+      return this.http.post(this.url+'/register', user).pipe(map((information)=>{
           return information;
       }));
   }
 
   buyboosters(amount: any): Observable<any> {
-    return this.http.get('http://'+this.url+':5000/buyBoosters', amount)
+    return this.http.get(this.url+'/buyBoosters', amount)
 }
 
   getUserData(): Observable<any> {
     const headers = new HttpHeaders({'Authorization': `Bearer ${this.token}`});
-    return this.http.get('http://'+this.url+':5000/getUserData',{headers});
+    return this.http.get(this.url+'/getUserData',{headers});
   }
 }
 

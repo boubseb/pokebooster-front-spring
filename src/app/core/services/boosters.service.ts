@@ -13,19 +13,19 @@ export class BoostersService {
 
   headers!:HttpHeaders;
 
-      url="88.163.1.215"
-      //url="127.0.0.1"
+      url="https://pkboostersapi.fr"
+      //url="http://127.0.0.1:5000"
 
   constructor(private http: HttpClient) {
   }
 
     getDataSets(): Observable<Set[]>{
-      return this.http.get<Set[]>('http://'+this.url+':5000/getDataSets')         
+      return this.http.get<Set[]>(this.url+'/getDataSets')         
     }
 
 
     getCardsBySetid(id :string): Observable<any>{    
-      return this.http.get<card[]>('http://'+this.url+':5000/getDataCards/'+id).pipe(tap((results:any) => {
+      return this.http.get<card[]>(this.url+'/getDataCards/'+id).pipe(tap((results:any) => {
         results.sort((a:any, b:any)=> {
           return a.number - b.number;}
     )}
@@ -33,7 +33,7 @@ export class BoostersService {
     }
 
     getRarityCardsBySetid(id :string): Observable<any>{ 
-        return this.http.get<card[]>('http://'+this.url+':5000/getDataCards/'+id).pipe(map(e => e.reduce(
+        return this.http.get<card[]>(this.url+'/getDataCards/'+id).pipe(map(e => e.reduce(
           (res:any, card:any)=>{
             if(!res[card.rarity]){
               res[card.rarity]=[]}

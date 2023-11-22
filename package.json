@@ -23,7 +23,7 @@
     "@auth0/angular-jwt": "^5.2.0",
     "bootstrap": "^5.2.3",
     "ngx-bootstrap": "^11.0.2",
-    "ngx-socket-io": "^4.5.1",
+    "ngx-socket-io": "^4.6.1",
     "ngx-swiper-wrapper": "^10.0.0",
     "ngx-useful-swiper": "^10.0.1",
     "rxjs": "~7.8.0",

@@ -9,8 +9,8 @@ export class PokedollarsService {
     constructor(private http: HttpClient) {}
 
 
-    url="88.163.1.215"
-    //url="127.0.0.1"
+    url="https://pkboostersapi.fr"
+    //url="http://127.0.0.1:5000"
 
 
     private token!: string;
@@ -23,12 +23,12 @@ export class PokedollarsService {
     
     buyboostersapi(amount: any): Observable<any> {
         const headers = new HttpHeaders({'Authorization': `Bearer ${this.token}`});
-        return this.http.post('http://'+this.url+':5000/buyBoosters', amount,{headers})
+        return this.http.post(this.url+'/buyBoosters', amount,{headers})
     }
 
     getUserData(): Observable<any> {
         const headers = new HttpHeaders({'Authorization': `Bearer ${this.token}`});
-        return this.http.get('http://'+this.url+':5000/getUserData',{headers});
+        return this.http.get(this.url+'/getUserData',{headers});
       }
     
 }
