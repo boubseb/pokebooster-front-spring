@@ -21,14 +21,15 @@ export class HeaderComponent implements OnInit{
   
 
   pseudo!:string;
-  userdata:any={'user':'','money':0};
+  userdata!:any;
 
 
   private socketSubscription!: Subscription;
 
 
   onLogout():void{
-    this.AuthService.removeToken()
+    this.AuthService.removeToken();
+    this.userdata=undefined;
     this.router.navigate(['./'], { relativeTo: this.route });
   }
 
