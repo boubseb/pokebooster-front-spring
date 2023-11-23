@@ -28,6 +28,7 @@ export class HeaderComponent implements OnInit{
 
 
   onLogout():void{
+    this.socket.emit('user_action',false)
     this.AuthService.removeToken();
     this.userdata=undefined;
     this.router.navigate(['./'], { relativeTo: this.route });
@@ -43,7 +44,7 @@ export class HeaderComponent implements OnInit{
         let url='https://pkboostersapi.fr'
         //let url ='http://127.0.0.1:5000'
         this.socket = new Socket({ url: url, options: { transportOptions: { polling: { extraHeaders: { Authorization: `Bearer ${token}` } } } } });
-        this.socket.emit('user_connect') 
+        this.socket.emit('user_action',true) 
         this.socket.fromEvent(`value_updated`).subscribe((data: any) => {
           console.log('recive updated value')
           this.userdata = data;
