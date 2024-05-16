@@ -1,6 +1,7 @@
 
 export class Set {
     data!:data
+    name!:string
     total_cards!:number
     id!:number
     avg_price_cards!:number

@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
     providedIn:'root'
@@ -10,8 +11,8 @@ export class AuthService{
     constructor(private http: HttpClient) {}
 
 
-    url="https://pkboostersapi.fr"
-    //url="http://127.0.0.1:5000"
+    url=environment.apiUrl
+
 
 
     username!:string;
@@ -25,7 +26,7 @@ export class AuthService{
    
 
   login(username: string, password: string): Observable<any> {
-        const body = { username, password };
+        const body = { pseudo:username, password };
         return this.http.post(this.url+'/login', body);
       }
 
@@ -68,8 +69,9 @@ export class AuthService{
 }
 
   getUserData(): Observable<any> {
-    const headers = new HttpHeaders({'Authorization': `Bearer ${this.token}`});
-    return this.http.get(this.url+'/getUserData',{headers});
+    const headers = new HttpHeaders({'Authorization':`${this.token}`});
+    console.log("lol"+headers)
+    return this.http.get(this.url+'/User',{headers});
   }
 }
 

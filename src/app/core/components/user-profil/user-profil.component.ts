@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Socket } from 'ngx-socket-io';
+//import { Socket } from 'ngx-socket-io';
 import { UserDataService } from '../../../core/services/userdata.service';
 import { AuthService } from '../../../core/services/auth.service';
 import { FormGroup, Validators,FormBuilder } from '@angular/forms';
@@ -17,7 +17,7 @@ export class UserProfilComponent implements OnInit {
 
 
   constructor(private UserDataService: UserDataService,private AuthService: AuthService,
-     private socket: Socket,private formBuilder: FormBuilder,private router: Router){
+     private formBuilder: FormBuilder,private router: Router){
     
   
   this.PasswordForm = this.formBuilder.group({
@@ -32,13 +32,14 @@ export class UserProfilComponent implements OnInit {
    
     this.refreshValue(); 
     // Listen for the 'value_updated' event
-    this.socket.fromEvent('value_updated').subscribe((data: any) => {
-    this.userdata = data;
-    });
+    //this.socket.fromEvent('value_updated').subscribe((data: any) => {
+    //this.userdata = data;
+   // });
   }
 
   refreshValue(): void {
     this.UserDataService.getUserData().subscribe(data => {
+      console.log(data)
       this.userdata = data;
     });
   }

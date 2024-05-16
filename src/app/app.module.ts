@@ -13,12 +13,12 @@ import { CoreModule } from './core/core.module';
 import { AuthModule } from './auth/auth.module';
 import { httpInterceptorProviders } from './core/interceptors';
 import {MatButtonModule} from '@angular/material/button';
-import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+//import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+import { environment } from '../environments/environment';
 
-
-const config: SocketIoConfig = { url: 'https://pkboostersapi.fr', options: {
-  withCredentials: true,
-} };
+// const config: SocketIoConfig = { url: environment.apiUrl, options: {
+//   withCredentials: true,
+// } };
 
 
 @NgModule({
@@ -35,7 +35,7 @@ const config: SocketIoConfig = { url: 'https://pkboostersapi.fr', options: {
     HttpClientModule,    
     BrowserAnimationsModule,
     MatButtonModule,
-    SocketIoModule.forRoot(config),
+   // SocketIoModule.forRoot(config),
     
   ],
   providers: [{provide: LOCALE_ID,useValue: 'fr-FR'},

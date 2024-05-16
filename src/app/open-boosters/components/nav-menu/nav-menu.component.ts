@@ -9,7 +9,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { card } from '../../../core/models/cards.model';
 import {  of } from 'rxjs';
 import * as ParamSetData from 'src/assets/param.json';
-import { Socket } from 'ngx-socket-io';
+//import { Socket } from 'ngx-socket-io';
 
 @Component({
   selector: 'app-nav-menu',
@@ -33,7 +33,7 @@ export class NavMenuComponent implements OnInit{
 
 
   constructor(private formBuilder: FormBuilder,private BoosterService: BoostersService,
-    private UserDataService: UserDataService,private PokedollarsService:PokedollarsService,private socket: Socket){
+    private UserDataService: UserDataService,private PokedollarsService:PokedollarsService){
 
     this.simulatorForm=this.formBuilder.group({
       setid: ['sv3pt5', Validators.required],
@@ -50,8 +50,7 @@ export class NavMenuComponent implements OnInit{
     this.ParamSetData=ParamSetData
     this.BoosterService.getDataSets().subscribe((x:any)=>{
       let filters=['sv3pt5','sv1','sv2','sv3','sv4']
-      this.Sets$=of(x.filter((value: any): boolean => {return filters.includes(value.data.id)}))
-
+      this.Sets$=of(x)
       this.boosterPrice=x.reduce((acc:any, item:any) => { acc[item.id] = item.avg_price_cards;
         return acc;
       }, {});
@@ -59,10 +58,10 @@ export class NavMenuComponent implements OnInit{
 
     this.refreshValue(); 
     
-    this.socket.fromEvent(`value_updated`).subscribe((data: any) => {
-      this.userdata = data;
-      console.log(this.userdata)
-     });   
+    // this.socket.fromEvent(`value_updated`).subscribe((data: any) => {
+    //   this.userdata = data;
+    //   console.log(this.userdata)
+    //  });   
   }
 
   refreshValue(): void {
@@ -96,8 +95,8 @@ export class NavMenuComponent implements OnInit{
    } 
     
     this.isLoading=true;
-    this.PokedollarsService.buyboostersapi({'money':y}).subscribe(x=>{  
-      if(x.money){
+    this.PokedollarsService.buyboostersapi(y).subscribe(x=>{  
+      if(x){
         this.BoosterService.getRarityCardsBySetid(this.simulatorForm.value.setid).subscribe(x=>{
           let boosters:card[][]=[]    
           let random=0;
@@ -117,6 +116,7 @@ export class NavMenuComponent implements OnInit{
             }
           };
           this.boosters$=of(boosters)
+          console.log(boosters)
           this.UserDataService.addCardToUserCollection(boosters.reduce((accumulator, value) => accumulator.concat(value), [])).subscribe(x=>{console.log(x)})
           console.log("done")
         },
@@ -145,15 +145,15 @@ export class NavMenuComponent implements OnInit{
       let setid:any=this.simulatorForm.value.setid
       switch(this.simulatorForm.value.openingChoice){
         case "booster":{
-          return  this.userdata['money']>(this.boosterPrice[setid]*this.ParamSetData[setid].length)
+          return  this.userdata['pokedollars']>(this.boosterPrice[setid]*this.ParamSetData[setid].length)
           break;
         }
         case "Display":{
-          return this.userdata['money']>(this.boosterPrice[setid]*this.ParamSetData[setid].length*20)
+          return this.userdata['pokedollars']>(this.boosterPrice[setid]*this.ParamSetData[setid].length*20)
           break;
         }
         case "few_boosters":{
-          return this.userdata['money']>(this.boosterPrice[setid]*this.ParamSetData[setid].length*this.simulatorForm.value.nb_boosters)
+          return this.userdata['pokedollars']>(this.boosterPrice[setid]*this.ParamSetData[setid].length*this.simulatorForm.value.nb_boosters)
           break;
         }
       }

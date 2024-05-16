@@ -3,13 +3,13 @@
 
 <div class="form-card" *ngIf="userdata!==undefined">
         <div class="form-group">
-            <h3>Pseudo :</h3><span>  {{userdata.user}}</span>
+            <h3>Pseudo :</h3><span>  {{userdata.pseudo}}</span>
         </div>
         <div class="form-group">
             <h3>email :</h3><span>{{userdata.email}}</span> 
         </div>
        <div class="form-group">
-            <h3>pokedollars :</h3><span>{{userdata.money |currency:'KRW':'symbol':'1.0-0'}}  </span> 
+            <h3>pokedollars :</h3><span>{{userdata.pokedollars |currency:'KRW':'symbol':'1.0-0'}}  </span> 
        </div>
         
 

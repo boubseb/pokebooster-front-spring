@@ -5,7 +5,7 @@
                 <mat-form-field appearance="outline" style="width: 100%;" >
                     <mat-label>Choix serie</mat-label>
                         <mat-select formControlName="setid">
-                            <mat-option *ngFor='let set of Sets$ | async' [value]=set.id>{{set.data.name}}</mat-option>
+                            <mat-option *ngFor='let set of Sets$ | async' [value]=set.id>{{set.name}}</mat-option>
                         </mat-select>
                 </mat-form-field>
         </mat-toolbar-row>

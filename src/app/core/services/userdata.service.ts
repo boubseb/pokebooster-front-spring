@@ -3,6 +3,7 @@ import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { card } from '../models/cards.model';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
     providedIn:'root'
@@ -10,8 +11,7 @@ import { card } from '../models/cards.model';
 export class UserDataService{
     constructor(private http: HttpClient) {}
     private token!: string;
-    url="https://pkboostersapi.fr"
-    //url="http://127.0.0.1:5000"
+    url=environment.apiUrl
 
 
     addCardToUserCollection(cards:card[]) :Observable<any> {
@@ -32,7 +32,7 @@ export class UserDataService{
     
     getUserData(): Observable<any> {
       const headers = new HttpHeaders({'Authorization': `Bearer ${this.token}`});
-      return this.http.get(this.url+'/getUserData',{headers});
+      return this.http.get(this.url+'/User',{headers});
     }
 }
 

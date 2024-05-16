@@ -4,7 +4,7 @@
                 <mat-form-field appearance="outline" style="display:inline-block;width: 100%;" >
                     <mat-label>Choix serie</mat-label>
                         <mat-select formControlName="setid">
-                            <mat-option (click)="onDisplaySet()" *ngFor='let booster of Sets$ | async' [value]=booster.id>{{booster.data.name}}</mat-option>
+                            <mat-option (click)="onDisplaySet()" *ngFor='let booster of Sets$ | async' [value]=booster.id>{{booster.name}}</mat-option>
                         </mat-select>
                 </mat-form-field>
                 <mat-spinner *ngIf="isLoading" style="margin-left:5px;width: 30px;display: inline-block;margin-bottom: 20px;"></mat-spinner>

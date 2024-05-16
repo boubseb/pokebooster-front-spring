@@ -4,7 +4,7 @@ import { map, tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { Set } from '../models/set.model';
 import { card } from '../models/cards.model';
-
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +13,8 @@ export class BoostersService {
 
   headers!:HttpHeaders;
 
-      url="https://pkboostersapi.fr"
-      //url="http://127.0.0.1:5000"
+      url=environment.apiUrl
+
 
   constructor(private http: HttpClient) {
   }

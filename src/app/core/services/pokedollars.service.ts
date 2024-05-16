@@ -1,7 +1,7 @@
-import { HttpHeaders,HttpClient } from '@angular/common/http';
+import { HttpHeaders,HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-
+import { environment } from '../../../environments/environment';
 @Injectable({
   providedIn: 'root',
 })
@@ -9,8 +9,7 @@ export class PokedollarsService {
     constructor(private http: HttpClient) {}
 
 
-    url="https://pkboostersapi.fr"
-    //url="http://127.0.0.1:5000"
+    url=environment.apiUrl
 
 
     private token!: string;
@@ -21,14 +20,15 @@ export class PokedollarsService {
     }
 
     
-    buyboostersapi(amount: any): Observable<any> {
+    buyboostersapi(amount: number): Observable<any> {
         const headers = new HttpHeaders({'Authorization': `Bearer ${this.token}`});
-        return this.http.post(this.url+'/buyBoosters', amount,{headers})
+        const params = new HttpParams().set('money', amount);
+        return this.http.post(this.url+'/buyBoosters', amount,{headers ,params})
     }
 
     getUserData(): Observable<any> {
         const headers = new HttpHeaders({'Authorization': `Bearer ${this.token}`});
-        return this.http.get(this.url+'/getUserData',{headers});
+        return this.http.get(this.url+'/User',{headers});
       }
     
 }

@@ -27,6 +27,7 @@ export class LoginComponent implements OnInit {
   onLogin(username:string,password:string):void {
     this.AuthService.login(username,password).subscribe(
       (response: any) => {
+        console.log(response)
         if (response.access_token) {
           this.AuthService.setToken(response.access_token);
           this.SharedService.setAuthenticationStatus(true);
