@@ -4,8 +4,10 @@ import { Router,ActivatedRoute } from '@angular/router';
 import { PokedollarsService } from '../../services/pokedollars.service';
 import { SharedService } from '../../services/shared.service';
 //import { Socket } from 'ngx-socket-io';
-import { interval, Subscription } from 'rxjs';
+import { interval, Observable, Subscription } from 'rxjs';
 import { environment } from '../../../../environments/environment';
+import { MatDialog } from '@angular/material/dialog';
+import { LoginComponent } from 'src/app/auth/components/login/login.component';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -16,43 +18,27 @@ export class HeaderComponent implements OnInit{
 
 
   constructor(private AuthService:AuthService,private router: Router,
-    //private PokedollarsService: PokedollarsService,private socket: Socket,
-    private SharedService: SharedService,private route: ActivatedRoute){}
+  private PokedollarsService: PokedollarsService,private route: ActivatedRoute,public dialog: MatDialog){}
   
 
   pseudo!:string;
-  userdata!:any;
+  userData$!:Observable<any>;
 
 
- // private socketSubscription!: Subscription;
+
 
 
   onLogout():void{
     //this.socket.emit('user_action',false)
     this.AuthService.removeToken();
-    this.userdata=undefined;
+    this.PokedollarsService.updatePokedollars(null)
     this.router.navigate(['./'], { relativeTo: this.route });
   }
 
 
   ngOnInit(): void {
 
-    // this.socketSubscription = this.SharedService.getAuthenticationStatus().subscribe((isAuthenticated) => {
-    //   if (isAuthenticated) {
-    //     console.log('user authent')
-    //     const token = this.AuthService.getToken()
-    //     const url=environment.apiUrl
-       // this.socket = new Socket({ url: url, options: { transportOptions: { polling: { extraHeaders: { Authorization: `Bearer ${token}` } } } } });
-        //this.socket.emit('user_action',true) 
-        //this.socket.fromEvent(`value_updated`).subscribe((data: any) => {
-        //   console.log('recive updated value')
-        //   this.userdata = data;
-        //   console.log(this.userdata)
-        //  });    
-        
-        //}
-   // });
-    
+    this.userData$=this.PokedollarsService.pokedollars$    
   }
 
 
@@ -64,15 +50,19 @@ export class HeaderComponent implements OnInit{
 
 
   isLogin():boolean{
-
-
     return this.AuthService.getToken()!==null
   }
 
-  refreshValue(): void {
-    // this.PokedollarsService.getUserData().subscribe(data => {
-    //   this.userdata = data;
-    // });
+  openLoginDialog(): void {
+    const dialogRef = this.dialog.open(LoginComponent, {
+      width: '600px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      // Optionally handle any result from the dialog here
+    });
   }
+
 
 }

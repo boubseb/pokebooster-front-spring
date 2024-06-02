@@ -20,9 +20,9 @@
         <mat-toolbar-row>
             <div *ngIf="boosterPrice!==undefined">
                 Price:
-                <div class="price" *ngIf="simulatorForm.value.openingChoice=='booster'">{{ boosterPrice[this.simulatorForm.value.setid]*this.ParamSetData[this.simulatorForm.value.setid].length | currency:'KRW':'symbol':'1.0-0'}}</div>
-                <div class="price" *ngIf="simulatorForm.value.openingChoice=='Display'">{{ boosterPrice[this.simulatorForm.value.setid]*this.ParamSetData[this.simulatorForm.value.setid].length*20 |currency:'KRW':'symbol':'1.0-0' }}</div>
-                <div class="price" *ngIf="simulatorForm.value.openingChoice=='few_boosters'">{{ boosterPrice[this.simulatorForm.value.setid]*this.ParamSetData[this.simulatorForm.value.setid].length*simulatorForm.value.nb_boosters |currency:'KRW':'symbol':'1.0-0' }}</div>
+                <div class="price" *ngIf="simulatorForm.value.openingChoice=='booster'">{{ boosterPrice[this.simulatorForm.value.setid]| currency:'KRW':'symbol':'1.0-0'}}</div>
+                <div class="price" *ngIf="simulatorForm.value.openingChoice=='Display'">{{ boosterPrice[this.simulatorForm.value.setid]*20 |currency:'KRW':'symbol':'1.0-0' }}</div>
+                <div class="price" *ngIf="simulatorForm.value.openingChoice=='few_boosters'">{{ boosterPrice[this.simulatorForm.value.setid]*simulatorForm.value.nb_boosters |currency:'KRW':'symbol':'1.0-0' }}</div>
             </div>
         </mat-toolbar-row>
         <mat-toolbar-row>

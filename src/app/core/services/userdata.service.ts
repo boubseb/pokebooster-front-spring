@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import { HttpClient,HttpHeaders } from '@angular/common/http';
+import { HttpClient,HttpHeaders, HttpParams } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { card } from '../models/cards.model';
@@ -14,18 +14,12 @@ export class UserDataService{
     url=environment.apiUrl
 
 
-    addCardToUserCollection(cards:card[]) :Observable<any> {
-        const headers = new HttpHeaders({'Authorization': `Bearer ${this.token}`});
-        return this.http.put(this.url+'/addCardToUserCollection',cards,{headers})
-      }
 
 
-
-    getUserCollection() :Observable<any> {
+    getUserCollection(set_id:string) :Observable<any> {
       const headers = new HttpHeaders({'Authorization': `Bearer ${this.token}`});
-      return this.http.get(this.url+'/UserCollection',{headers}).pipe(map((information)=>{
-          return information;
-        }));
+      const params = new HttpParams().set('set_id', set_id)
+      return this.http.get(this.url+'/Collection',{headers,params})
     }
 
 

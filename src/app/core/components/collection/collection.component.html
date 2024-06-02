@@ -5,7 +5,7 @@
                 <mat-label>Choix serie</mat-label>
                     <mat-select formControlName="setid">
                         <mat-option (click)="onDisplaySet()" value="all">All</mat-option>
-                        <mat-option (click)="onDisplaySet()" *ngFor='let booster of Sets$ | async' [value]=booster.data.id>{{booster.data.name}}</mat-option>
+                        <mat-option (click)="onDisplaySet()" *ngFor='let booster of Sets$ | async' [value]=booster.id>{{booster.name}}</mat-option>
                     </mat-select>
             </mat-form-field>
         </mat-toolbar-row>

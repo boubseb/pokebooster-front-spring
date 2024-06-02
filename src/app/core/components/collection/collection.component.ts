@@ -19,7 +19,7 @@ export class CollectionComponent implements OnInit{
   Sets$!:Observable<Set[]>;
   fastopening:Boolean=true;
   boosters!:card[];
-  collection!:card[];
+  collections!:card[];
   setRarities!:string[]
   setDisplayRarities:string[]=['all']
 
@@ -35,18 +35,27 @@ export class CollectionComponent implements OnInit{
 
   onDisplaySet():void{  
 
-    if(this.CollectionForm.value.setid!='all'){
-      this.boosters=this.collection.filter((card:any) => card.object.set.id === this.CollectionForm.value.setid).sort((a:any, b:any)=> {
-        return a.object.number - b.object.number;})
-      
-      } 
-    else{
-      this.boosters=this.collection.sort((a:any, b:any) => a.object.set.id.localeCompare(b.object.set.id))
-    }
+    this.UserDataService.getUserCollection(this.CollectionForm.value.setid).subscribe(x=>{
+      this.collections=x
 
-    this.setRarities=this.boosters.map((card:any) => card.object.rarity).filter((value, index, array) => array.indexOf(value) === index);
-    this.setDisplayRarities=this.setRarities
-    this.boosters$=of([this.boosters]);
+
+      if(this.CollectionForm.value.setid!='all'){
+        this.collections=this.collections.sort((a:any, b:any)=> {
+          return a.number - b.number;})
+        
+        } 
+      else{
+        this.collections=this.collections.sort((a:any, b:any) => a.pokeSetId.localeCompare(b.pokeSetId))
+      }
+  
+      this.setRarities=this.collections.map((collection:any) => collection.card.rarity).filter((value, index, array) => array.indexOf(value) === index);
+      this.setDisplayRarities=this.setRarities
+      this.boosters$=of([this.collections]);
+      console.log(this.boosters$)
+      
+    })
+
+
          
 
 }
@@ -71,15 +80,7 @@ export class CollectionComponent implements OnInit{
   }
 
   ngOnInit(): void {
-      this.BoosterService.getDataSets().subscribe((x:any)=>{
-        let filters=['sv3pt5','sv1','sv2','sv3','sv4']
-        this.Sets$=of(x.filter((value: any): boolean => {return filters.includes(value.data.id)}))
-      })
-      this.UserDataService.getUserCollection().subscribe(x=>{
-        this.collection=x
-        this.onDisplaySet()
-        
-      })
+    this.Sets$=this.BoosterService.getDataSets()
   }
 
   isItemSelected(item: string): boolean {

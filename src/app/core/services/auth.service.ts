@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import { HttpClient,HttpHeaders } from '@angular/common/http';
+import { HttpClient,HttpHeaders, HttpParams } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
@@ -30,16 +30,17 @@ export class AuthService{
         return this.http.post(this.url+'/login', body);
       }
 
-  changePAssword(password: string): Observable<any> {
+  changePassword(password: string): Observable<any> {
     const headers = new HttpHeaders({'Authorization': `Bearer ${this.token}`});
         const body = { password };
         return this.http.post(this.url+'/changePassword', body,{headers}).pipe(map((x:any)=>x.message));
       }
 
-  deleteAccount():Observable<any>{
+  deleteAccount(password:string):Observable<any>{
     console.log('delete')
     const headers = new HttpHeaders({'Authorization': `Bearer ${this.token}`});
-    return this.http.put(this.url+'/deleteAccount',{headers}).pipe(map((x:any)=>{x.message;console.log(x)}));
+    const params = new HttpParams().set('password',password)
+    return this.http.put(this.url+'/deleteAccount',{},{headers,params})
   }
 
 

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-//import { Socket } from 'ngx-socket-io';
 import { UserDataService } from '../../../core/services/userdata.service';
 import { AuthService } from '../../../core/services/auth.service';
 import { FormGroup, Validators,FormBuilder } from '@angular/forms';
@@ -13,7 +12,9 @@ import { Router } from '@angular/router';
 export class UserProfilComponent implements OnInit {
   userdata: any;
   PasswordForm!:FormGroup;
+  DeleteForm!:FormGroup;
   resultResetPassword$!: Observable<any>;
+  isDelete:boolean=false;
 
 
   constructor(private UserDataService: UserDataService,private AuthService: AuthService,
@@ -23,18 +24,17 @@ export class UserProfilComponent implements OnInit {
   this.PasswordForm = this.formBuilder.group({
     password: ['', [Validators.required]]
   });
+
+  this.DeleteForm = this.formBuilder.group({
+    password: ['', [Validators.required]]
+  });
   }
 
   
 
 
   ngOnInit(): void {
-   
-    this.refreshValue(); 
-    // Listen for the 'value_updated' event
-    //this.socket.fromEvent('value_updated').subscribe((data: any) => {
-    //this.userdata = data;
-   // });
+    this.refreshValue()
   }
 
   refreshValue(): void {
@@ -45,13 +45,14 @@ export class UserProfilComponent implements OnInit {
   }
 
   onChangePassword():void{
-    this.AuthService.changePAssword(this.PasswordForm.value.password).subscribe(x=>this.resultResetPassword$=of(x))
+    this.AuthService.changePassword(this.PasswordForm.value.password).subscribe(x=>this.resultResetPassword$=of(x))
     //this.AuthService.removeToken()
     //this.router.navigateByUrl('/auth/login')
   }
 
   onDeleteAccount():void{
-    this.AuthService.deleteAccount().subscribe(x=>console.log(x))
+    console.log("test"+this.DeleteForm.value.password)
+    this.AuthService.deleteAccount(this.DeleteForm.value.password).subscribe()
     this.AuthService.removeToken()
     this.router.navigateByUrl('/')
   }

@@ -1,27 +1,30 @@
-
-
-
 <div class="form-card" *ngIf="userdata!==undefined">
-        <div class="form-group">
-            <h3>Pseudo :</h3><span>  {{userdata.pseudo}}</span>
-        </div>
-        <div class="form-group">
-            <h3>email :</h3><span>{{userdata.email}}</span> 
-        </div>
-       <div class="form-group">
-            <h3>pokedollars :</h3><span>{{userdata.pokedollars |currency:'KRW':'symbol':'1.0-0'}}  </span> 
-       </div>
-        
-
-    <form [formGroup]="PasswordForm">
-        <div class="form-group" style="display: flex;">
-            <input type="password" id="password" formControlName="password" class="form-control" placeholder="Enter your password" required>
-            <button  class="btn btn-primary" (click)="onChangePassword()">Change password</button>
-        </div>
-    </form>
-    <div class="form-group">{{resultResetPassword$ | async}}</div>
     <div class="form-group">
-        <button  class="btn btn-primary" (click)="onDeleteAccount()" style="color:white;background-color: red;">Delete account</button>
+        <h3>Pseudo :</h3><span>  {{userdata.pseudo}}</span>
     </div>
+    <div class="form-group">
+        <h3>email :</h3><span>{{userdata.email}}</span> 
+    </div>
+   <div class="form-group">
+        <h3>pokedollars :</h3><span>{{userdata.pokedollars |currency:'KRW':'symbol':'1.0-0'}}  </span> 
+   </div>
     
-  </div>
+
+ <!-- <form [formGroup]="PasswordForm">
+    <div class="form-group" style="display: flex;">
+        <input type="password" id="password" formControlName="password" class="form-control" placeholder="Enter your password" required>
+        <button  class="btn btn-primary" (click)="onChangePassword()">Change password</button>
+    </div>
+</form>
+ <div class="form-group">{{resultResetPassword$ | async}}</div> -->
+
+<div class="form-group"><button  class="btn btn-primary" (click)="isDelete=!isDelete"  style="color:white;background-color: red;">Delete account</button>
+
+<form *ngIf="isDelete" [formGroup]="DeleteForm">
+    <div class="form-group" style="display: flex;">
+        <input type="password"  formControlName="password" class="form-control" placeholder="Enter your password" required>
+        <button  class="btn btn-primary" (click)="onDeleteAccount()">delete confirm</button>
+    </div>
+</form>
+
+</div>

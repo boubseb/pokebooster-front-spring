@@ -1,13 +1,13 @@
 <header>
     <div class="header-links">
-        <a routerLink="auth/login" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true}" *ngIf="!isLogin()">Login</a>
+        <a  (click)="openLoginDialog()" *ngIf="!isLogin()">Login</a>
         <a routerLink="auth/register" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true}" *ngIf="!isLogin()">Register</a>
         <a routerLink="/profil" routerLinkActive="active" *ngIf="isLogin()">My Profil</a>
         <a (click)="onLogout()" *ngIf="isLogin()">Logout</a>
     </div>
-    <div class="pseudo" *ngIf="userdata!==undefined">
-        Welcom <span style="font-weight: bold">{{userdata.user}}</span> ! 
-    <div >Pokedollars :<span style="font-weight: bold;color:green">{{ userdata.money |currency:'KRW':'symbol':'1.0-0'}} </span></div>
+    <div class="pseudo" *ngIf="(userData$| async) !==null" >
+        Welcom <span style="font-weight: bold">{{(userData$| async).pseudo}}</span> ! 
+    <div >Pokedollars :<span style="font-weight: bold;color:green">{{ (userData$| async).pokedollars |currency:'KRW':'symbol':'1.0-0'}} </span></div>
        
       </div>  
     <div class="titre">

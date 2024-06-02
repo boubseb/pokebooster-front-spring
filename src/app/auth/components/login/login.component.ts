@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { FormGroup, Validators,FormBuilder } from '@angular/forms';
 import { SharedService } from 'src/app/core/services/shared.service';
+import { PokedollarsService } from 'src/app/core/services/pokedollars.service';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +14,7 @@ import { SharedService } from 'src/app/core/services/shared.service';
 export class LoginComponent implements OnInit { 
   LoginForm: FormGroup;
   constructor(private AuthService:AuthService,private router:Router,private formBuilder: FormBuilder,
-    private SharedService: SharedService){
+    private SharedService: SharedService,private PokedollarsService: PokedollarsService,private dialogRef: MatDialogRef<LoginComponent> ){
 
     this.LoginForm = this.formBuilder.group({
       username: ['', [Validators.required]],
@@ -31,7 +33,9 @@ export class LoginComponent implements OnInit {
         if (response.access_token) {
           this.AuthService.setToken(response.access_token);
           this.SharedService.setAuthenticationStatus(true);
+          this.PokedollarsService.getUserData();
           this.router.navigateByUrl('/open-boosters');
+          this.dialogRef.close();
         } else {
           // Handle login error
           console.error('Login failed:', response.message);
@@ -42,6 +46,10 @@ export class LoginComponent implements OnInit {
         console.error('Login failed:', error);
       },
     );
+  }
+
+  onClose() {
+    this.dialogRef.close();
   }
 
 

@@ -49,7 +49,6 @@ export class NavMenuComponent implements OnInit{
   ngOnInit(): void {
     this.ParamSetData=ParamSetData
     this.BoosterService.getDataSets().subscribe((x:any)=>{
-      let filters=['sv3pt5','sv1','sv2','sv3','sv4']
       this.Sets$=of(x)
       this.boosterPrice=x.reduce((acc:any, item:any) => { acc[item.id] = item.avg_price_cards;
         return acc;
@@ -71,7 +70,7 @@ export class NavMenuComponent implements OnInit{
   }
 
   onBuyBoosters():void{  
-    let y=0
+    let price=0
     let nb_booster!:number
     let setid:any=this.simulatorForm.value.setid
 
@@ -79,65 +78,35 @@ export class NavMenuComponent implements OnInit{
     
       case "booster": { 
         nb_booster=1
-        y=this.boosterPrice[setid]*this.ParamSetData[this.simulatorForm.value.setid].length
+        price=this.boosterPrice[setid]
         break; 
       } 
       case "Display": { 
         nb_booster=20
-        y=this.boosterPrice[setid]*this.ParamSetData[this.simulatorForm.value.setid].length*20
+        price=this.boosterPrice[setid]*20
          break; 
       } 
       case "few_boosters": {  
         nb_booster=this.simulatorForm.value.nb_boosters   
-         y=this.boosterPrice[setid]*this.ParamSetData[this.simulatorForm.value.setid].length*this.simulatorForm.value.nb_boosters
+         price=this.boosterPrice[setid]*this.simulatorForm.value.nb_boosters
          break; 
       } 
    } 
-    
+    console.log(price)
     this.isLoading=true;
-    this.PokedollarsService.buyboostersapi(y).subscribe(x=>{  
-      if(x){
-        this.BoosterService.getRarityCardsBySetid(this.simulatorForm.value.setid).subscribe(x=>{
-          let boosters:card[][]=[]    
-          let random=0;
-          for(let i=0;i<nb_booster;i++){
-            boosters.push([])
-            for(let j=0;j<this.ParamSetData[this.simulatorForm.value.setid].length;j++){
-              random=Math.random()*100
-              for(let k=0;k<this.ParamSetData[this.simulatorForm.value.setid][j].length;k++){    
-                  let pourcentage=this.ParamSetData[this.simulatorForm.value.setid][j][k].pourcentage
-                  if(pourcentage[0]<random && random<pourcentage[1]){
-                    let Rarity=this.ParamSetData[this.simulatorForm.value.setid][j][k]['Rarity']
-                    let card = x[Rarity][Math.floor(Math.random()*x[Rarity].length)]
-                    boosters[i].push(card)
-                  }
-              }
-              
-            }
-          };
-          this.boosters$=of(boosters)
-          console.log(boosters)
-          this.UserDataService.addCardToUserCollection(boosters.reduce((accumulator, value) => accumulator.concat(value), [])).subscribe(x=>{console.log(x)})
-          console.log("done")
-        },
-        (error) => {
-          console.error('Error fetching data', error);
-        },
-        () => {
-          this.isLoading = false; // Reset the loading state after the observable completes
-        }
-        )
+    this.PokedollarsService.buyboostersapi(nb_booster,setid).subscribe(x=>{  
+      console.log(x)
+      this.boosters$=of(x)
+      this.isLoading=false
+      this.PokedollarsService.getUserData().subscribe(x=> {
+        console.log(x)
+        this.PokedollarsService.updatePokedollars(x)}
+      )
+    })
 
-      }
-      else{
-        console.log('not enought money')
 
-      }
+  }
   
-  })
-    
-    
-    };
 
   
 
@@ -145,15 +114,15 @@ export class NavMenuComponent implements OnInit{
       let setid:any=this.simulatorForm.value.setid
       switch(this.simulatorForm.value.openingChoice){
         case "booster":{
-          return  this.userdata['pokedollars']>(this.boosterPrice[setid]*this.ParamSetData[setid].length)
+          return  this.userdata['pokedollars']>(this.boosterPrice[setid])
           break;
         }
         case "Display":{
-          return this.userdata['pokedollars']>(this.boosterPrice[setid]*this.ParamSetData[setid].length*20)
+          return this.userdata['pokedollars']>(this.boosterPrice[setid]*20)
           break;
         }
         case "few_boosters":{
-          return this.userdata['pokedollars']>(this.boosterPrice[setid]*this.ParamSetData[setid].length*this.simulatorForm.value.nb_boosters)
+          return this.userdata['pokedollars']>(this.boosterPrice[setid]*this.simulatorForm.value.nb_boosters)
           break;
         }
       }
